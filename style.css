@@ -139,6 +139,10 @@ body {
     border-radius: 0.25rem;
 }
 
+.card-text {
+    margin-top: 0.5rem!important;
+}
+
 .card p {
     margin: 0;
 }
@@ -182,7 +186,7 @@ body {
 .contributor-avatar:hover {
     width: 56px;
     height: 56px;
-    padding: 0.05rem;
+    padding: 0.16rem;
 }
 
 #copyright {
