@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700&amp;display=swap">
     <title>Crystal Linux</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        function downloadLink() {
+            //Temporary, as a system to get the latest version link will be implemented
+            window.open("https://github.com/crystal-linux/iso/releases");
+        }
+    </script>
 </head>
 
 <body>
@@ -18,7 +24,7 @@
                 <div class="dropdown-content">
                     <a href="https://github.com/crystal-linux">GitHub</a>
                     <a href="https://discord.gg/2b47CAKNAx">Discord</a>
-                    <a href="#">Download</a>
+                    <a href="#" onclick="downloadLink()">Download</a>
                 </div>
             </div>
         </div>
@@ -26,7 +32,55 @@
     <section class="highlight">
         <div class="container">
             <div id="intro">
+                <h2 class="highlight-header" style="animation-delay: 0s;">
+                    Core Team
+                    <br>
+                </h2>
+                <div class="core-team">
+                    <a href="https://github.com/SomethingGeneric" class="core-team-link" style="animation-delay: 0.2s;">
+                        <img src="https://avatars.githubusercontent.com/u/12242178?v=4">
+                        <br> SomethingGeneric
+                    </a>
+                    <a href="https://github.com/not-my-segfault" class="core-team-link" style="animation-delay: 0.4s;">
+                        <img src="https://avatars.githubusercontent.com/u/30374463?v=4">
+                        <br> not-my-segfault
+                    </a>
+                    <a href="https://github.com/hericiumvevo" class="core-team-link" style="animation-delay: 0.6s;">
+                        <img src="https://avatars.githubusercontent.com/u/54361578?v=4">
+                        <br> hericimvevo
+                    </a>
+                    <a href="https://github.com/axtloss" class="core-team-link" style="animation-delay: 0.8s;">
+                        <img src="https://avatars.githubusercontent.com/u/60044824?v=4">
+                        <br> axtloss
+                    </a>
+                </div>
+                <h2 class="highlight-header" style="animation-delay: 0s;">
+                    Team Members
+                    <br>
+                </h2>
+                <div id="contributors-list">
 
+                </div>
             </div>
         </div>
     </section>
+    <br>
+    <div id="copyright">
+        Copyright (c) 2022. All Rights Reserved.
+        <a class="license-link" href="https://github.com/crystal-linux/.github/blob/main/LICENSE">
+            Project licensed under GPLv3.0.
+        </a>
+    </div>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load our React component. -->
+    <script src="team.js"></script>
+
+
+</body>
+
+</html>

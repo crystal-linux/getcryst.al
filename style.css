@@ -189,6 +189,55 @@ body {
     padding: 0.16rem;
 }
 
+.core-team-link {
+    animation: fadeIn 1s ease-in-out both;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    padding: 1rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.core-team-link img {
+    animation: coreTeamImage 0.1s ease-in-out both;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 2rem;
+}
+
+@keyframes coreTeamImageHover {
+    0% {
+        width: 8rem;
+        height: 8rem;
+        padding: 0.25rem;
+    }
+    100% {
+        width: 10rem;
+        height: 10rem;
+        padding: 0.1rem;
+    }
+}
+
+@keyframes coreTeamImage {
+    0% {
+        width: 10rem;
+        height: 10rem;
+        padding: 0.1rem;
+    }
+    100% {
+        width: 8rem;
+        height: 8rem;
+        padding: 0.25rem;
+    }
+}
+
+.core-team-link img:hover {
+    animation: coreTeamImageHover 0.1s ease-in-out both;
+}
+
 #copyright {
     position: fixed;
     bottom: 0;
