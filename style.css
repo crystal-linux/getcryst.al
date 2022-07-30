@@ -82,6 +82,7 @@ body {
 .highlight {
     margin-top: 3rem;
     padding-top: 3rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
@@ -191,6 +192,7 @@ body {
     background-color: #1e1e1e;
     text-align: center;
     padding: 0.5rem 0;
+    margin-top: 2rem;
 }
 
 .license-link {
