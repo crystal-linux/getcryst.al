@@ -1,0 +1,189 @@
+body{
+    font-family: Inter, sans-serif; 
+    background: #2b2b2b;
+    color: #fff;
+    margin:0;
+}
+
+.hidden{
+    display:none;
+}
+
+.navbar{
+    background-color:#2b2b2b;
+}
+.navbar:hover{
+    background-color:#1e1e1e;
+    box-shadow: 0px 5px 10px 0px rgb(21, 21, 21);
+}
+
+.navbar .container{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 3rem;
+}
+
+.navbar .brand{
+    margin-right: 0.75rem;
+}
+
+.brand{
+    text-align: center;
+    vertical-align:middle;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.navbar-toggler{
+    text-align: center;
+    vertical-align:middle;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1e1e1e;
+    box-shadow: 0px 5px 10px 0px rgb(21, 21, 21);
+    padding-top: 1rem;
+    min-width: 160px;
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: #fff;
+    font-size: 1.25rem;
+    background-color: #1e1e1e;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover{
+    background-color: #161616;
+}
+
+.highlight{
+    margin-top: 3rem;
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.highlight-header{
+    font-size:36px;
+    margin: 0.5rem;
+}
+
+.highlight-text{
+    font-size: 16px;
+    margin: 0.75rem;
+    color: #eee;
+}
+
+#intro{
+    animation: fadeIn 1s ease-in-out both;
+}
+
+.buttons a{
+    text-decoration: none;
+    padding: 0 1rem;
+}
+
+.highlight .container{
+    margin: 0 5rem;
+}
+
+.card-group{
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card{
+    animation: fadeIn 1s ease-in-out both;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e1e;
+    max-width: 24rem;
+    margin: 0.75rem;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+}
+
+.card p{
+    margin: 0;
+}
+
+.card-header{
+    margin: 0.25rem;
+}
+
+.checklist{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.checklist-item{
+    background: transparent;
+    border-width: 0px;
+    padding-bottom: 1rem;
+}
+
+.contributor-category{
+    margin-bottom: 0.5rem;
+}
+
+.contributor-avatar{
+    width: 36x;
+    height: 36px;
+    padding: 0.25rem;
+    border-radius: 1rem;
+}
+
+.contributor-avatar:hover{
+    width: 56x;
+    height: 56px;
+    padding: 0.05rem;
+}
+
+#copyright{
+    background-color:#1e1e1e;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+#copyright a{
+    text-decoration: none;
+    color: #fff;
+}
+#copyright a:hover{
+    text-decoration: underline;
+    color: #fff;
+}
+
+@keyframes fadeIn{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
