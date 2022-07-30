@@ -185,12 +185,13 @@ body {
     padding: 0.5rem 0;
 }
 
-#copyright a {
+.license-link {
     text-decoration: none;
+    font-weight: 500;
     color: #fff;
 }
 
-#copyright a:hover {
+.license-link:hover {
     text-decoration: underline;
     color: #fff;
 }
