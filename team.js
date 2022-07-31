@@ -75,69 +75,142 @@ class Languages extends React.Component {
         super(props);
         //Tracks whether json data has been fetched from url
         this.state = { fetched: false, langs: [] };
-        this.getLangData(["amethyst", "jade", "jade_gui", "malachite", "jade-gui", "site", "onyx", "lapis", "caveman", "pkg-manager-warner"]);
+        this.getLangData();
+        this.getLangData();
     }
 
-    getLangData(repos) {
-        for (let i in repos) {
-            fetch("https://api.github.com/repos/crystal-linux/" + repos[i] + "/languages", {
-                    method: "GET",
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                })
-                .then((response) => response.json())
-                .then((responseData) => {
-                    for (let key in Object.keys(responseData)) {
-                        let k = Object.keys(responseData)[key];
+    getLangData() {
+        fetch("https://api.github.com/repos/crystal-linux/amethyst/languages", {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((response) => response.json())
+            .then((responseData) => {
+                for (let key in Object.keys(responseData)) {
+                    let k = Object.keys(responseData)[key];
+                    this.state.langs.push(k);
+                }
+            })
+            .catch(error => console.warn(error));
+        fetch("https://api.github.com/repos/crystal-linux/jade/languages", {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((response) => response.json())
+            .then((responseData) => {
+                for (let key in Object.keys(responseData)) {
+                    let k = Object.keys(responseData)[key];
+                    this.state.langs.push(k);
+                }
+            })
+            .catch(error => console.warn(error));
+        fetch("https://api.github.com/repos/crystal-linux/malachite/languages", {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((response) => response.json())
+            .then((responseData) => {
+                for (let key in Object.keys(responseData)) {
+                    let k = Object.keys(responseData)[key];
+                    this.state.langs.push(k);
+                }
+            })
+            .catch(error => console.warn(error));
+        fetch("https://api.github.com/repos/crystal-linux/lapis/languages", {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((response) => response.json())
+            .then((responseData) => {
+                for (let key in Object.keys(responseData)) {
+                    let k = Object.keys(responseData)[key];
+                    this.state.langs.push(k);
+                }
+            })
+            .catch(error => console.warn(error));
+        fetch("https://api.github.com/repos/crystal-linux/caveman/languages", {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((response) => response.json())
+            .then((responseData) => {
+                for (let key in Object.keys(responseData)) {
+                    let k = Object.keys(responseData)[key];
+                    this.state.langs.push(k);
+                }
+            })
+            .catch(error => console.warn(error));
 
-                        if (this.state.langs.indexOf(k) == -1) {
-                            this.state.langs.push(k);
-                        }
-                    }
-                    if (i == repos.length - 1) {
-                        this.setState({
-                            fetched: true
-                        });
-                    }
-                })
-                .catch(error => console.warn(error));
-        }
+        fetch("https://api.github.com/repos/crystal-linux/site/languages", {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((response) => response.json())
+            .then((responseData) => {
+                for (let key in Object.keys(responseData)) {
+                    let k = Object.keys(responseData)[key];
+                    this.state.langs.push(k);
+                }
+                this.setState({
+                    fetched: true
+                });
+            })
+            .catch(error => console.warn(error));
+
         //indicates that data was fetched, then stores only the required data in a list in the object state
     }
 
     render() {
         var langlist = [];
-        //var totalBytes = 0;
-        //console.log(this.state.langs);
+        var set = this.state.langs.filter((c, index) => {
+            return this.state.langs.indexOf(c) === index;
+        });
+        set.sort();
         if (this.state.fetched) {
             let i = 0;
-            for (let k in this.state.langs) {
+            for (let k in set) {
                 let id = "";
-                switch (this.state.langs[k]) {
+                switch (set[k]) {
                     case "C++":
                         id = "CPP";
                         break;
                     default:
-                        id = this.state.langs[k];
+                        id = set[k];
                 }
 
                 langlist.push(React.createElement(
                     'div', {
                         id: id + "-tag",
                         className: "lang-tag",
-                        title: this.state.langs[k],
+                        title: set [k],
+                        key: i,
                         style: {
                             animationDelay: "" + (0.1 + (0.1 * i)) + "s"
                         }
                     },
-                    this.state.langs[k]
+                    set[k]
                 ));
                 i++;
             }
         }
-
         return langlist;
     }
 
