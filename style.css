@@ -151,6 +151,49 @@ body {
     margin: 0.25rem;
 }
 
+.download-button {
+    animation: downloadButton 0.1s ease-in-out both;
+    display: inline-block;
+    background-color: #A900FF;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    user-select: none;
+    padding: 1rem 2rem;
+    border-radius: 0.25rem;
+}
+
+.download-button:hover {
+    animation: downloadButtonHover 0.1s ease-in-out both;
+    display: inline-block;
+    background-color: #161616;
+    text-decoration: underline;
+    padding: 1rem 2rem;
+    border-radius: 0.25rem;
+}
+
+@keyframes downloadButton {
+    0% {
+        background-color: #161616;
+        text-decoration: underline;
+    }
+    100% {
+        background-color: #A900FF;
+        text-decoration: none;
+    }
+}
+
+@keyframes downloadButtonHover {
+    0% {
+        background-color: #A900FF;
+        text-decoration: none;
+    }
+    100% {
+        background-color: #161616;
+        text-decoration: underline;
+    }
+}
+
 .checklist {
     display: flex;
     flex-direction: column;
@@ -158,6 +201,7 @@ body {
 }
 
 .checklist-item {
+    font-size: 1.25rem;
     background: transparent;
     border-width: 0px;
     padding-bottom: 1rem;
@@ -189,7 +233,11 @@ body {
     padding: 0.16rem;
 }
 
-.core-team-link {
+#team-members {
+    padding: 2rem;
+}
+
+.team-link {
     animation: fadeIn 1s ease-in-out both;
     display: inline-block;
     text-align: center;
@@ -200,15 +248,15 @@ body {
     color: #fff;
 }
 
-.core-team-link img {
-    animation: coreTeamImage 0.1s ease-in-out both;
+.team-link img {
+    animation: teamImage 0.1s ease-in-out both;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
     border-radius: 2rem;
 }
 
-@keyframes coreTeamImageHover {
+@keyframes teamImageHover {
     0% {
         width: 8rem;
         height: 8rem;
@@ -221,7 +269,7 @@ body {
     }
 }
 
-@keyframes coreTeamImage {
+@keyframes teamImage {
     0% {
         width: 10rem;
         height: 10rem;
@@ -234,8 +282,103 @@ body {
     }
 }
 
-.core-team-link img:hover {
-    animation: coreTeamImageHover 0.1s ease-in-out both;
+.team-link img:hover {
+    animation: teamImageHover 0.1s ease-in-out both;
+}
+
+#languages {
+    padding: 1rem;
+}
+
+.lang-tag {
+    animation: fadeIn 0.1s ease-in-out both;
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 200;
+    padding: 0.35rem;
+    margin: 0.35rem;
+    border: 0.1rem solid #fff;
+    border-radius: 0.5rem;
+}
+
+#Rust-tag {
+    color: #dea584;
+    border-color: #dea584;
+}
+
+#CPP-tag {
+    color: #f34b7d;
+    border-color: #f34b7d;
+}
+
+#C-tag {
+    color: #555555;
+    border-color: #555555;
+}
+
+#Objective-C-tag {
+    color: #438eff;
+    border-color: #438eff;
+}
+
+#Python-tag {
+    color: #3572A5;
+    border-color: #3572A5;
+}
+
+#Swift-tag {
+    color: #F05138;
+    border-color: #F05138;
+}
+
+#Kotlin-tag {
+    color: #A97BFF;
+    border-color: #A97BFF;
+}
+
+#HTML-tag {
+    color: #e34c26;
+    border-color: #e34c26;
+}
+
+#CSS-tag {
+    color: #563d7c;
+    border-color: #563d7c;
+}
+
+#Dart-tag {
+    color: #00B4AB;
+    border-color: #00B4AB;
+}
+
+#PHP-tag {
+    color: #4f5d95;
+    border-color: #4f5d95;
+}
+
+#Nix-tag {
+    color: #7e7eff;
+    border-color: #7e7eff;
+}
+
+#Shell-tag {
+    color: #89e051;
+    border-color: #89e051;
+}
+
+#CMake-tag {
+    color: #DA3434;
+    border-color: #DA3434;
+}
+
+#Makefile-tag {
+    color: #427819;
+    border-color: #427819;
+}
+
+#Meson-tag {
+    color: #007800;
+    border-color: #007800;
 }
 
 #copyright {
