@@ -13,12 +13,12 @@ class Team extends React.Component {
     //Fetches and parses repository data from Github
     getContributorData() {
         return fetch("https://api.github.com/orgs/crystal-linux/members", {
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
             .then((response) => response.json())
             .then((responseData) => {
                 //indicates that data was fetched, then stores only the required data in a list in the object state
@@ -48,16 +48,16 @@ class Team extends React.Component {
                 //Creates new a link tag with a nested img tag with the user's data
                 React.createElement(
                     'a', {
-                        className: "team-link",
-                        title: user.login,
-                        href: user.link
-                    }, //Good lord I cannot wait to figure out how to get JSX working
+                    className: "team-link",
+                    title: user.login,
+                    href: user.link
+                }, //Good lord I cannot wait to figure out how to get JSX working
                     React.createElement(
                         'img', {
-                            className: "team-avatar",
-                            alt: user.login,
-                            src: user.avatar
-                        }
+                        className: "team-avatar",
+                        alt: user.login,
+                        src: user.avatar
+                    }
                     ),
                     React.createElement('br'),
                     user.login
@@ -81,12 +81,12 @@ class Languages extends React.Component {
 
     getLangData() {
         fetch("https://api.github.com/repos/crystal-linux/amethyst/languages", {
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
             .then((response) => response.json())
             .then((responseData) => {
                 for (let key in Object.keys(responseData)) {
@@ -96,12 +96,12 @@ class Languages extends React.Component {
             })
             .catch(error => console.warn(error));
         fetch("https://api.github.com/repos/crystal-linux/jade/languages", {
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
             .then((response) => response.json())
             .then((responseData) => {
                 for (let key in Object.keys(responseData)) {
@@ -111,12 +111,12 @@ class Languages extends React.Component {
             })
             .catch(error => console.warn(error));
         fetch("https://api.github.com/repos/crystal-linux/malachite/languages", {
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
             .then((response) => response.json())
             .then((responseData) => {
                 for (let key in Object.keys(responseData)) {
@@ -126,12 +126,12 @@ class Languages extends React.Component {
             })
             .catch(error => console.warn(error));
         fetch("https://api.github.com/repos/crystal-linux/lapis/languages", {
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
             .then((response) => response.json())
             .then((responseData) => {
                 for (let key in Object.keys(responseData)) {
@@ -141,12 +141,12 @@ class Languages extends React.Component {
             })
             .catch(error => console.warn(error));
         fetch("https://api.github.com/repos/crystal-linux/caveman/languages", {
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
             .then((response) => response.json())
             .then((responseData) => {
                 for (let key in Object.keys(responseData)) {
@@ -157,69 +157,27 @@ class Languages extends React.Component {
             .catch(error => console.warn(error));
 
         fetch("https://api.github.com/repos/crystal-linux/site/languages", {
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
             .then((response) => response.json())
             .then((responseData) => {
                 for (let key in Object.keys(responseData)) {
                     let k = Object.keys(responseData)[key];
                     this.state.langs.push(k);
                 }
+                //indicates that data was fetched, then stores only the required data in a list in the object state
                 this.setState({
                     fetched: true
                 });
             })
             .catch(error => console.warn(error));
-
-        //indicates that data was fetched, then stores only the required data in a list in the object state
     }
-
-    render() {
-        var langlist = [];
-        var set = this.state.langs.filter((c, index) => {
-            return this.state.langs.indexOf(c) === index;
-        });
-        set.sort();
-        if (this.state.fetched) {
-            let i = 0;
-            for (let k in set) {
-                let id = "";
-                switch (set[k]) {
-                    case "C++":
-                        id = "CPP";
-                        break;
-                    default:
-                        id = set[k];
-                }
-
-                langlist.push(React.createElement(
-                    'div', {
-                        id: id + "-tag",
-                        className: "lang-tag",
-                        title: set [k],
-                        key: i,
-                        style: {
-                            animationDelay: "" + (0.1 + (0.1 * i)) + "s"
-                        }
-                    },
-                    set[k]
-                ));
-                i++;
-            }
-        }
-        return langlist;
-    }
-
 }
 
 const teamContainer = document.querySelector('#team-members');
 const teamRoot = ReactDOM.createRoot(teamContainer);
 teamRoot.render(React.createElement(Team));
-
-const langContainer = document.querySelector('#languages');
-const langRoot = ReactDOM.createRoot(langContainer);
-langRoot.render(React.createElement(Languages));
