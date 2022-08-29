@@ -22,7 +22,6 @@
             <div class="dropdown">
                 <img src="assets/svg/dropdown.svg" class="navbar-toggler">
                 <div class="dropdown-content">
-                    <a href="index.html">Home</a>
                     <a href="team.html">Team</a>
                     <a href="#" onclick="downloadLink()">Download</a>
                 </div>
@@ -30,83 +29,81 @@
         </div>
     </div>
     <section class="highlight">
-        <div class="container">
-            <div id="intro">
-                <h2 class="highlight-header">
-                    An Arch Based Distribution
-                    <br>
+        <div id="intro">
+            <h2 class="highlight-header">
+                An Arch Based Distribution
+                <br>
+            </h2>
+            <p class="highlight-text">
+                Crystal Linux is a brand new Arch Linux based distribution.
+                <br> Completely beginner friendly, easy to use, and powerful.
+            </p>
+        </div>
+        <div class="buttons">
+            <a href="https://twitter.com/crystal_linux" class="socials-link">
+                <img src="assets/svg/twitter-logo.svg" width="64px" height="64px">
+            </a>
+            <a href="https://github.com/crystal-linux" class="socials-link">
+                <img src="assets/svg/github-logo.svg" width="64px" height="64px">
+            </a>
+            <a href="https://discord.gg/2b47CAKNAx" class="socials-link">
+                <img src="assets/svg/discord-logo.svg" width="64px" height="64px">
+            </a>
+            <a href="https://fosstodon.org/@crystal_linux" class="socials-link">
+                <img src="assets/svg/mastodon-logo.svg" width="64px" height="64px">
+            </a>
+        </div>
+        <div class="card-group">
+            <div class="card" style="animation-delay: 0.2s;">
+                <h2 class="card-header">
+                    Why Crystal?
                 </h2>
-                <p class="highlight-text">
-                    Crystal Linux is a brand new Arch Linux based distribution.
-                    <br> Completely beginner friendly, easy to use, and powerful.
+                <p class="card-text">
+                    What's so different about Crystal compared to other distributions?
+                    <div>
+                        <ul class="checklist">
+                            <li class="checklist-item">&nbsp;Easy to use package manager</span>
+                            </li>
+                            <li class="checklist-item">&nbsp;Beginner Friendly</span>
+                            </li>
+                            <li class="checklist-item">&nbsp;Easy Btrfs snapshots</span>
+                            </li>
+                            <li class="checklist-item">&nbsp;Easy to install</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+                    <a class="download-button" onclick="downloadLink()">Download</a>
                 </p>
             </div>
-            <div class="buttons">
-                <a href="https://twitter.com/crystal_linux" class="socials-link">
-                    <img src="assets/svg/twitter-logo.svg" width="64px" height="64px">
-                </a>
-                <a href="https://github.com/crystal-linux" class="socials-link">
-                    <img src="assets/svg/github-logo.svg" width="64px" height="64px">
-                </a>
-                <a href="https://discord.gg/2b47CAKNAx" class="socials-link">
-                    <img src="assets/svg/discord-logo.svg" width="64px" height="64px">
-                </a>
-                <a href="https://fosstodon.org/@crystal_linux" class="socials-link">
-                    <img src="assets/svg/mastodon-logo.svg" width="64px" height="64px">
-                </a>
+            <div class="card" style="animation-delay: 0.4s;">
+                <h2 class="card-header">
+                    Contributors
+                </h2>
+                <p class="card-text">
+                    Top five contributors on the major repositories.
+                    <br><br>
+                    <div id="ame" class="contributor-category">
+                    </div>
+                    <div id="jade" class="contributor-category" style="margin-bottom: 10px;">
+                    </div>
+                    <div id="mal" class="contributor-category" style="margin-bottom: 10px;">
+                    </div>
+                    <div id="branding" class="contributor-category" style="margin-bottom: 10px;">
+                    </div>
+                </p>
             </div>
-            <div class="card-group">
-                <div class="card" style="animation-delay: 0.2s;">
-                    <h2 class="card-header">
-                        Why Crystal?
-                    </h2>
-                    <p class="card-text">
-                        What's so different about Crystal compared to other distributions?
-                        <div>
-                            <ul class="checklist">
-                                <li class="checklist-item">&nbsp;Easy to use package manager</span>
-                                </li>
-                                <li class="checklist-item">&nbsp;Beginner Friendly</span>
-                                </li>
-                                <li class="checklist-item">&nbsp;Easy Btrfs snapshots</span>
-                                </li>
-                                <li class="checklist-item">&nbsp;Easy to install</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <br>
-                        <a class="download-button" onclick="downloadLink()">Download</a>
-                    </p>
-                </div>
-                <div class="card" style="animation-delay: 0.4s;">
-                    <h2 class="card-header">
-                        Contributors
-                    </h2>
-                    <p class="card-text">
-                        Top five contributors on the major repositories.
-                        <br><br>
-                        <div id="ame" class="contributor-category">
-                        </div>
-                        <div id="jade" class="contributor-category" style="margin-bottom: 10px;">
-                        </div>
-                        <div id="mal" class="contributor-category" style="margin-bottom: 10px;">
-                        </div>
-                        <div id="branding" class="contributor-category" style="margin-bottom: 10px;">
-                        </div>
-                    </p>
-                </div>
-                <div class="card" style="animation-delay: 0.6s;">
-                    <h2 class="card-header">
-                        We 💖 open source software
-                    </h2>
-                    <p class="card-text">
-                        Basically everything that Crystal Linux has coded/made is completely open source for everyone.
-                        <br><br> The project is licensed under <a class="license-link" href="https://github.com/crystal-linux/.github/blob/main/LICENSE">GPLv3.0</a>.
-                        <br><br> We also are fully transparent, and have adopted the <a class="license-link" href="https://www.contributor-covenant.org/">Contributor Covenant</a>.
-                        <br><br> If you would like to contribute to the project, please adhere to the <a class="license-link" href="https://github.com/crystal-linux/.github/blob/main/CONTRIBUTING.md">Contributing Guidelines</a> and the <a class="license-link"
-                            href="https://developercertificate.org/">The DCO</a>.
-                    </p>
-                </div>
+            <div class="card" style="animation-delay: 0.6s;">
+                <h2 class="card-header">
+                    We 💖 open source software
+                </h2>
+                <p class="card-text">
+                    Basically everything that Crystal Linux has coded/made is completely open source for everyone.
+                    <br><br> The project is licensed under <a class="license-link" href="https://github.com/crystal-linux/.github/blob/main/LICENSE">GPLv3.0</a>.
+                    <br><br> We also are fully transparent, and have adopted the <a class="license-link" href="https://www.contributor-covenant.org/">Contributor Covenant</a>.
+                    <br><br> If you would like to contribute to the project, please adhere to the <a class="license-link" href="https://github.com/crystal-linux/.github/blob/main/CONTRIBUTING.md">Contributing Guidelines</a> and the <a class="license-link"
+                        href="https://developercertificate.org/">The DCO</a>.
+                </p>
             </div>
         </div>
     </section>

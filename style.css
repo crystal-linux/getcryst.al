@@ -13,16 +13,12 @@ body {
     background-color: #2b2b2b;
 }
 
-.navbar:hover {
-    background-color: #1e1e1e;
-}
-
 .navbar .container {
     display: flex;
     flex-wrap: inherit;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
 }
 
 .navbar .brand {
@@ -60,7 +56,6 @@ body {
     display: none;
     position: absolute;
     background-color: #1e1e1e;
-    padding-top: 1rem;
     min-width: 160px;
     z-index: 1;
     right: 0;
@@ -80,21 +75,10 @@ body {
 }
 
 .highlight {
-    margin-top: 3rem;
-    padding-top: 3rem;
-    margin-bottom: 2rem;
     text-align: center;
-}
-
-.highlight-header {
-    font-size: 36px;
-    margin: 0.5rem;
-}
-
-.highlight-text {
-    font-size: 16px;
-    margin: 0.75rem;
-    color: #eee;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
 }
 
 #intro {
@@ -114,10 +98,6 @@ body {
     filter: brightness(0) saturate(100%) invert(44%) sepia(97%) saturate(4728%) hue-rotate(197deg) brightness(106%) contrast(101%);
 }
 
-.highlight .container {
-    margin: 0 5rem;
-}
-
 .card-group {
     vertical-align: middle;
     justify-content: center;
@@ -125,16 +105,17 @@ body {
     padding-top: 2rem;
     display: flex;
     flex-flow: row wrap;
+    gap: 0.75rem;
 }
 
 .card {
     animation: fadeIn 1s ease-in-out both;
     position: relative;
     display: flex;
+    flex-basis: 100%;
     flex-direction: column;
     background-color: #1e1e1e;
     max-width: 24rem;
-    margin: 0.75rem;
     padding: 1.25rem;
     border-radius: 0.25rem;
 }
@@ -161,6 +142,7 @@ body {
     user-select: none;
     padding: 1rem 2rem;
     border-radius: 0.25rem;
+    cursor: pointer;
 }
 
 .download-button:hover {
