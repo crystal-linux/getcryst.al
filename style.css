@@ -81,6 +81,17 @@ body {
     padding: 0 1rem;
 }
 
+.highlight-header {
+    font-size: 36px;
+    margin: 0.5rem;
+}
+
+.highlight-text {
+    font-size: 16px;
+    margin: 0.75rem;
+    color: #eee;
+}
+
 #intro {
     animation: fadeIn 1s ease-in-out both;
 }
