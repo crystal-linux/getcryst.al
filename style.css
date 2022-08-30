@@ -74,6 +74,15 @@ body {
     background-color: #161616;
 }
 
+.text-link{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.text-link:hover{
+    color: #A900FF;
+}
+
 .highlight {
     text-align: center;
     margin-top: 5rem;
@@ -116,7 +125,6 @@ body {
     padding-top: 2rem;
     display: flex;
     flex-flow: row wrap;
-    gap: 0.75rem;
 }
 
 .card {
@@ -127,8 +135,19 @@ body {
     flex-direction: column;
     background-color: #1e1e1e;
     max-width: 24rem;
-    padding: 1.25rem;
-    border-radius: 0.25rem;
+    padding: 1.75rem;
+}
+
+.wide-card{
+    animation: fadeIn 1s ease-in-out both;
+    position: relative;
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1e1e1e;
+    max-width: 48rem;
+    padding: 1.75rem;
 }
 
 .card-text {
@@ -141,6 +160,14 @@ body {
 
 .card-header {
     margin: 0.25rem;
+}
+
+.repo-grid{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
+    max-width: 48rem;
 }
 
 .download-button {
@@ -203,7 +230,8 @@ body {
 }
 
 .contributor-category {
-    margin-bottom: 0.5rem;
+    padding: 1rem;
+    min-width: 2rem;
 }
 
 .contributor-link {
@@ -243,7 +271,7 @@ body {
     color: #fff;
 }
 
-.team-link img {
+.team-avatar {
     animation: teamImage 0.1s ease-in-out both;
     display: inline-block;
     text-align: center;
@@ -253,33 +281,33 @@ body {
 
 @keyframes teamImageHover {
     0% {
-        width: 8rem;
-        height: 8rem;
+        width: 6rem;
+        height: 6rem;
         padding: 0.25rem;
     }
 
     100% {
-        width: 10rem;
-        height: 10rem;
+        width: 8rem;
+        height: 8rem;
         padding: 0.1rem;
     }
 }
 
 @keyframes teamImage {
     0% {
-        width: 10rem;
-        height: 10rem;
+        width: 8rem;
+        height: 8rem;
         padding: 0.1rem;
     }
 
     100% {
-        width: 8rem;
-        height: 8rem;
+        width: 6rem;
+        height: 6rem;
         padding: 0.25rem;
     }
 }
 
-.team-link img:hover {
+.team-avatar:hover {
     animation: teamImageHover 0.1s ease-in-out both;
 }
 
