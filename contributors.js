@@ -69,7 +69,7 @@ class Contributors extends React.Component {
 
         //Creates a listing for the specific repository
         return ([
-            React.createElement("p", { style: { fontSize: "14px", marginBottom: "0.5rem" } }, "crystal-linux/", this.repo, "\xA0contributors"),
+            React.createElement("p", { style: { fontSize: "14px", marginBottom: "0.5rem" } }, "crystal-linux/", this.repo),
             icons,
         ]);
     }
@@ -85,10 +85,26 @@ const jadeContainer = document.querySelector('#jade');
 const jadeRoot = ReactDOM.createRoot(jadeContainer);
 jadeRoot.render(React.createElement(Contributors, { repo: "jade" }));
 
+const jadeguiContainer = document.querySelector('#jade-gui');
+const jadeguiRoot = ReactDOM.createRoot(jadeguiContainer);
+jadeguiRoot.render(React.createElement(Contributors, { repo: "jade-gui" }));
+
 const malContainer = document.querySelector('#mal');
 const malRoot = ReactDOM.createRoot(malContainer);
 malRoot.render(React.createElement(Contributors, { repo: "malachite" }));
 
+const moonstoneContainer = document.querySelector('#moonstone');
+const moonstoneRoot = ReactDOM.createRoot(moonstoneContainer);
+moonstoneRoot.render(React.createElement(Contributors, { repo: "moonstone" }));
+
+const designContainer = document.querySelector('#design');
+const designRoot = ReactDOM.createRoot(designContainer);
+designRoot.render(React.createElement(Contributors, { repo: "demos-mockups" }));
+
 const brandingContainer = document.querySelector('#branding');
 const brandingRoot = ReactDOM.createRoot(brandingContainer);
 brandingRoot.render(React.createElement(Contributors, { repo: "branding" }));
+
+const siteContainer = document.querySelector('#site');
+const siteRoot = ReactDOM.createRoot(siteContainer);
+siteRoot.render(React.createElement(Contributors, { repo: "getcryst.al" }));
