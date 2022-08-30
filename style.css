@@ -308,24 +308,14 @@ body {
     border-color: #f34b7d;
 }
 
-#Objective-C-tag {
-    color: #438eff;
-    border-color: #438eff;
-}
 
 #Python-tag {
     color: #3572A5;
     border-color: #3572A5;
 }
-
-#Swift-tag {
-    color: #F05138;
-    border-color: #F05138;
-}
-
-#Kotlin-tag {
-    color: #A97BFF;
-    border-color: #A97BFF;
+#Nix-tag {
+    color: #7e7eff;
+    border-color: #7e7eff;
 }
 
 #HTML-tag {
@@ -333,9 +323,19 @@ body {
     border-color: #e34c26;
 }
 
-#Javascript-tag {
-    color: #f1e05a;
-    border-color: #f1e05a;
+#React-tag {
+    color: #00FF80;
+    border-color: #00FF80;
+}
+
+.roadmap-step{
+    margin: 2rem;
+}
+
+.roadmap-list{
+    padding-left: 0;
+    text-align: left;
+    margin-left: 40%;
 }
 
 #copyright {

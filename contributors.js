@@ -13,27 +13,27 @@ class Contributors extends React.Component {
     //Fetches and parses repository data from Github
     getContributorData() {
         return fetch("https://api.github.com/repos/crystal-linux/" + this.repo + "/contributors", {
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
-            .then((response) => response.json())
-            .then((responseData) => {
-                //indicates that data was fetched, then stores only the required data in a list in the object state
-                this.setState({
-                    fetched: true,
-                    users: responseData.map(user => {
-                        return {
-                            login: user.login,
-                            link: user.html_url,
-                            avatar: user.avatar_url
-                        }
-                    })
-                });
-            })
-            .catch(error => console.warn(error));
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+            //indicates that data was fetched, then stores only the required data in a list in the object state
+            this.setState({
+                fetched: true,
+                users: responseData.map(user => {
+                    return {
+                        login: user.login,
+                        link: user.html_url,
+                        avatar: user.avatar_url
+                    }
+                })
+            });
+        })
+        .catch(error => console.warn(error));
     }
 
     render() {
