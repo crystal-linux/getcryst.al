@@ -173,6 +173,7 @@ body {
 .download-button {
     animation: downloadButton 0.1s ease-in-out both;
     display: inline-block;
+    color: #fff;
     background-color: #A900FF;
     text-decoration: none;
     font-size: 1.25rem;
