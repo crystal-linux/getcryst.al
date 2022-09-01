@@ -115,7 +115,7 @@ body {
 }
 
 .socials-link:hover img {
-    filter: brightness(0) saturate(100%) invert(44%) sepia(97%) saturate(4728%) hue-rotate(197deg) brightness(106%) contrast(101%);
+    filter: brightness(0) saturate(100%) invert(300%) sepia(97%) saturate(4728%) hue-rotate(544.5deg) brightness(55%) contrast(1000%);
 }
 
 .card-group {
