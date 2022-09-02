@@ -6,20 +6,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { NextPage } from "next";
-import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
     <main className="flex flex-col items-center text-center">
-      <Head>
-        <title>Crystal Linux</title>
-        <meta
-          name="description"
-          content="A brand new Arch Linux based distribution."
-        />
-        <link rel="icon" href="/crystal.svg" />
-      </Head>
-
       <h1>An Arch Based Distribution</h1>
       <p>Crystal Linux is a brand new Arch Linux based distribution.</p>
       <p>Powerful and easy to use.</p>
