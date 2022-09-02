@@ -12,6 +12,7 @@ specifiers:
   eslint: 8.23.0
   eslint-config-next: 12.2.5
   next: 12.2.5
+  next-seo: ^5.5.0
   postcss: ^8.4.16
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.13
@@ -26,6 +27,7 @@ dependencies:
   "@fortawesome/free-solid-svg-icons": 6.2.0
   "@fortawesome/react-fontawesome": 0.2.0_6j2wdqxompc6mcokhxkpep2gqu
   next: 12.2.5_biqbaboplfbrettd7655fr4n2y
+  next-seo: 5.5.0_3xcjr4wz26biff45sz3jtokgje
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -2148,6 +2150,21 @@ packages:
         integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==,
       }
     dev: true
+
+  /next-seo/5.5.0_3xcjr4wz26biff45sz3jtokgje:
+    resolution:
+      {
+        integrity: sha512-5ouBHFtx8YrSDW44lj0qIEQ+oMcz6stgoITB+SqHUZbhgizoJsyLmq73gJ0lxtEKpcN8vG2QgRIJfdb8OAPChw==,
+      }
+    peerDependencies:
+      next: ^8.1.1-canary.54 || >=9.0.0
+      react: ">=16.0.0"
+      react-dom: ">=16.0.0"
+    dependencies:
+      next: 12.2.5_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /next/12.2.5_biqbaboplfbrettd7655fr4n2y:
     resolution:
