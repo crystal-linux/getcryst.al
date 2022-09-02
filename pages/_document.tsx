@@ -32,7 +32,6 @@ const Document = () => (
         sizes="16x16"
         href="/favicons/favicon-16x16.png"
       />
-      <link rel="manifest" href="/favicons/site.webmanifest" />
       <link
         rel="mask-icon"
         href="/favicons/safari-pinned-tab.svg"
