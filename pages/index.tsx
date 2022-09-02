@@ -67,12 +67,12 @@ const Home: NextPage = () => {
             <li>Easy Btrfs snapshots</li>
             <li>Easy to install</li>
           </ul>
-          <button
-            type="button"
+          <a
             className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-bold w-full rounded-lg text-lg px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+            href="https://github.com/crystal-linux/iso/releases/latest"
           >
             Download
-          </button>
+          </a>
         </div>
         <div className="text-center">
           <h2>We 💖 open source software</h2>
