@@ -1,9 +1,7 @@
-import { DefaultSeo } from "next-seo";
-import SEO from "../next-seo.config";
-import { Head } from "next/document";
+import { Head, Html, Main, NextScript } from "next/document";
 
 const Document = () => (
-  <>
+  <Html>
     <Head>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
@@ -40,8 +38,12 @@ const Document = () => (
       <link rel="shortcut icon" href="/favicons/favicon.ico" />
       <link rel="icon" href="/favicons/favicon.ico" />
     </Head>
-    <DefaultSeo {...SEO} />
-  </>
+
+    <body>
+      <Main />
+      <NextScript />
+    </body>
+  </Html>
 );
 
 export default Document;
