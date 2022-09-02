@@ -43,15 +43,14 @@ const Home: NextPage = () => {
             icon: faMastodon,
           },
         ].map((entry) => (
-          <>
-            <a
-              href={entry.link}
-              target="_blank"
-              className="hover:text-purple-700"
-            >
-              <FontAwesomeIcon icon={entry.icon} size="3x" />
-            </a>
-          </>
+          <a
+            href={entry.link}
+            target="_blank"
+            className="hover:text-purple-700"
+            key={entry.link}
+          >
+            <FontAwesomeIcon icon={entry.icon} size="3x" />
+          </a>
         ))}
       </div>
 
