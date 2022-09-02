@@ -39,6 +39,7 @@ const Document = () => (
         color="#5bbad5"
       />
       <link rel="shortcut icon" href="/favicons/favicon.ico" />
+      <link rel="icon" href="/favicons/favicon.ico" />
     </Head>
     <DefaultSeo {...SEO} />
   </>
