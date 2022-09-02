@@ -2,21 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   html {
-    font-family: "Inter", sans-serif
+    font-family: "Inter", sans-serif;
   }
   p {
-    @apply text-base
+    @apply text-base;
   }
   h2 {
-    @apply text-2xl font-semibold
+    @apply text-2xl font-semibold;
   }
   h1 {
-    @apply text-4xl font-bold
+    @apply text-4xl font-bold;
   }
   a {
-    @apply hover:underline font-semibold
+    @apply hover:underline font-semibold;
   }
 }
