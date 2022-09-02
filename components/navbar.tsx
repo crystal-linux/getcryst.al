@@ -5,7 +5,7 @@ const Navbar = () => (
   <header className="flex justify-between px-6 py-4">
     <Link href="/">
       <a className="flex gap-2 items-center font-semibold text-xl">
-        <Image src="/crystal.svg" width={30} height={30} />
+        <Image src="/svg/crystal-logo.svg" width={30} height={30} />
         Crystal Linux
       </a>
     </Link>
