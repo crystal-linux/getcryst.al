@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   "@fortawesome/fontawesome-svg-core": ^6.2.0
   "@fortawesome/free-brands-svg-icons": ^6.2.0
+  "@fortawesome/free-regular-svg-icons": ^6.2.0
   "@fortawesome/free-solid-svg-icons": ^6.2.0
   "@fortawesome/react-fontawesome": ^0.2.0
   "@types/node": 18.7.14
@@ -24,6 +25,7 @@ specifiers:
 dependencies:
   "@fortawesome/fontawesome-svg-core": 6.2.0
   "@fortawesome/free-brands-svg-icons": 6.2.0
+  "@fortawesome/free-regular-svg-icons": 6.2.0
   "@fortawesome/free-solid-svg-icons": 6.2.0
   "@fortawesome/react-fontawesome": 0.2.0_6j2wdqxompc6mcokhxkpep2gqu
   next: 12.2.5_biqbaboplfbrettd7655fr4n2y
@@ -110,6 +112,17 @@ packages:
     resolution:
       {
         integrity: sha512-fm1y4NyZ2qKYNmYhdMz9VAWRw1Et7PMHNunSw3W0SVAwKwv6o0qiJworLH3Y9SnmhHzAymXJwCX1op22FFvGiA==,
+      }
+    engines: { node: ">=6" }
+    requiresBuild: true
+    dependencies:
+      "@fortawesome/fontawesome-common-types": 6.2.0
+    dev: false
+
+  /@fortawesome/free-regular-svg-icons/6.2.0:
+    resolution:
+      {
+        integrity: sha512-M1dG+PAmkYMTL9BSUHFXY5oaHwBYfHCPhbJ8qj8JELsc9XCrUJ6eEHWip4q0tE+h9C0DVyFkwIM9t7QYyCpprQ==,
       }
     engines: { node: ">=6" }
     requiresBuild: true
