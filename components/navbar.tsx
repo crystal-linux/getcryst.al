@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ThemeSwitcher from "./ThemeSwitcher";
+import ThemeSwitcherIcon from "./ThemeSwitcher/Icon";
+import ThemeSwitcherNative from "./ThemeSwitcher/Native";
 
 const Navbar = () => {
   const [scrollTop, setScrollTop] = useState(0);
@@ -40,7 +41,7 @@ const Navbar = () => {
           </a>
         </Link>
         <div className="flex md:order-2">
-          <ThemeSwitcher />
+          <ThemeSwitcherIcon />
           <a
             type="button"
             className="text-gray-300 hover:bg-gray-800 hidden focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center md:inline-flex items-center mr-2 dark:hover:bg-zinc-700"
@@ -102,6 +103,14 @@ const Navbar = () => {
                 />
               </a>
             </li>
+            <div
+              className={`${
+                toggled ? "hidden" : ""
+              } md:hidden flex items-center justify-between pt-4 mt-2 border-zinc-200 dark:border-zinc-600 border-t-2`}
+            >
+              <p className="text-zinc-700 dark:text-zinc-400">Switch Theme</p>
+              <ThemeSwitcherNative />
+            </div>
           </ul>
         </div>
       </div>
