@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <nav
       className={`bg-white px-2 sm:px-4 py-2.5 ${
-        scrollTop != 0 ? "dark:bg-zinc-900" : "bg-base-dark"
+        scrollTop != 0 ? "dark:bg-zinc-900" : "dark:bg-base-dark"
       } fixed w-full z-20 top-0 left-0 border-b border-zinc-200 dark:border-zinc-600`}
     >
       <div className="container flex flex-wrap justify-between items-center mx-auto max-w-7xl">
@@ -44,7 +44,7 @@ const Navbar = () => {
           <ThemeSwitcherIcon />
           <a
             type="button"
-            className="text-gray-300 hover:bg-gray-800 hidden focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center md:inline-flex items-center mr-2 dark:hover:bg-zinc-700"
+            className="text-zinc-500 dark:text-gray-300 hover:bg-gray-100 hidden focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center md:inline-flex items-center mr-2 dark:hover:bg-zinc-700"
             href="https://github.com/crystal-linux/"
           >
             <FontAwesomeIcon icon={faGithub} size="lg" />
@@ -106,7 +106,7 @@ const Navbar = () => {
             <div
               className={`${
                 toggled ? "hidden" : ""
-              } md:hidden flex items-center justify-between pt-4 mt-2 border-zinc-200 dark:border-zinc-600 border-t-2`}
+              } md:hidden flex items-center justify-between pt-4 mt-2 border-zinc-200 dark:border-zinc-600 border-t px-2`}
             >
               <p className="text-zinc-700 dark:text-zinc-400">Switch Theme</p>
               <ThemeSwitcherNative />
