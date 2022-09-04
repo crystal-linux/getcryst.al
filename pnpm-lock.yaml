@@ -14,6 +14,7 @@ specifiers:
   eslint-config-next: 12.2.5
   next: 12.2.5
   next-seo: ^5.5.0
+  next-themes: ^0.2.0
   postcss: ^8.4.16
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.13
@@ -30,6 +31,7 @@ dependencies:
   "@fortawesome/react-fontawesome": 0.2.0_6j2wdqxompc6mcokhxkpep2gqu
   next: 12.2.5_biqbaboplfbrettd7655fr4n2y
   next-seo: 5.5.0_3xcjr4wz26biff45sz3jtokgje
+  next-themes: 0.2.0_3xcjr4wz26biff45sz3jtokgje
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -2173,6 +2175,21 @@ packages:
       next: ^8.1.1-canary.54 || >=9.0.0
       react: ">=16.0.0"
       react-dom: ">=16.0.0"
+    dependencies:
+      next: 12.2.5_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /next-themes/0.2.0_3xcjr4wz26biff45sz3jtokgje:
+    resolution:
+      {
+        integrity: sha512-myhpDL4vadBD9YDSHiewqvzorGzB03N84e+3LxCwHRlM/hiBOaW+UsKsQojQAzC7fdcJA0l2ppveXcYaVV+hxQ==,
+      }
+    peerDependencies:
+      next: "*"
+      react: "*"
+      react-dom: "*"
     dependencies:
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0

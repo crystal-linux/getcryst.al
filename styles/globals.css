@@ -6,6 +6,9 @@
   html {
     font-family: "Inter", sans-serif;
   }
+  body {
+    @apply min-h-screen bg-base-light dark:bg-base-dark;
+  }
   p {
     @apply text-base;
   }
