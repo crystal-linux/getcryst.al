@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Navbar = () => {
   const [scrollTop, setScrollTop] = useState(0);
@@ -29,7 +30,7 @@ const Navbar = () => {
         scrollTop != 0 ? "dark:bg-zinc-900" : "bg-base-dark"
       } fixed w-full z-20 top-0 left-0 border-b border-zinc-200 dark:border-zinc-600`}
     >
-      <div className="container flex flex-wrap justify-between items-center mx-auto">
+      <div className="container flex flex-wrap justify-between items-center mx-auto max-w-7xl">
         <Link href="/">
           <a className="flex items-center gap-2">
             <Image src="/svg/crystal-logo.svg" width={35} height={35} />
@@ -39,12 +40,13 @@ const Navbar = () => {
           </a>
         </Link>
         <div className="flex md:order-2">
+          <ThemeSwitcher />
           <a
             type="button"
-            className="text-white hover:bg-gray-800 hidden focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center md:inline-flex items-center mr-2 dark:hover:bg-zinc-700"
+            className="text-gray-300 hover:bg-gray-800 hidden focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center md:inline-flex items-center mr-2 dark:hover:bg-zinc-700"
             href="https://github.com/crystal-linux/"
           >
-            <FontAwesomeIcon icon={faGithub} size="xl" />
+            <FontAwesomeIcon icon={faGithub} size="lg" />
           </a>
 
           <a

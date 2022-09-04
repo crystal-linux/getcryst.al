@@ -9,7 +9,7 @@ import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <main className="flex flex-col items-center text-center">
+    <>
       <h1>An Arch Based Distribution</h1>
       <p>Crystal Linux is a brand new Arch Linux based distribution.</p>
       <p>Powerful and easy to use.</p>
@@ -44,20 +44,20 @@ const Home: NextPage = () => {
         ))}
       </div>
 
-      <div className="flex flex-wrap align-middle my-4 justify-center [&_div]:max-w-sm [&_div]:flex [&_div]:flex-col [&_div]:items-center [&_div]:p-6 [&_div]:gap-4 [&_div]:bg-gray-300">
+      <div className="flex flex-wrap align-middle my-4 justify-center [&_div]:max-w-sm [&_div]:flex [&_div]:flex-col [&_div]:items-center [&_div]:p-6 [&_div]:gap-4 [&_div]:bg-zinc-300 [&_div]:dark:bg-gray-900">
         <div>
           <h2>Why Crystal?</h2>
           <p>
             What's so different about Crystal compared to other distributions?
           </p>
-          <ul className="list-disc list-inside flex flex-col gap-4 text-xl">
+          <ul className="list-disc list-inside text-left flex flex-col gap-4 text-xl">
             <li>Easy to use package manager</li>
             <li>Beginner Friendly</li>
             <li>Easy Btrfs snapshots</li>
             <li>Easy to install</li>
           </ul>
           <a
-            className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-bold w-full rounded-lg text-lg px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+            className="focus:outline-none text-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-bold w-full rounded-lg text-lg px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
             href="https://github.com/crystal-linux/iso/releases/latest"
           >
             Download
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
           </p>
         </div>
       </div>
-    </main>
+    </>
   );
 };
 
