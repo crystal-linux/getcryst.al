@@ -51,7 +51,7 @@ const ThemeSwitcherIcon = () => {
       <div
         className={`${
           !toggled ? "hidden" : ""
-        } z-10 w-32 bg-white font-semibold rounded divide-y divide-gray-100 shadow dark:bg-gray-700 absolute mt-16`}
+        } z-10 w-32 bg-white font-semibold rounded divide-y divide-gray-100 shadow dark:bg-gray-700 absolute mt-12`}
         ref={ref}
         onBlur={(e) => {
           const currentTarget = e.currentTarget;
