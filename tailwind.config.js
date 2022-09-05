@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: colors.zinc,
+        // gray: colors.zinc,
         base: {
           dark: colors.zinc[800],
           light: colors.zinc[100],
@@ -18,5 +18,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
