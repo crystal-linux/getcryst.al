@@ -3,6 +3,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ThemeSwitcherIcon from "./ThemeSwitcher/Icon";
 import ThemeSwitcherNative from "./ThemeSwitcher/Native";
@@ -10,6 +11,7 @@ import ThemeSwitcherNative from "./ThemeSwitcher/Native";
 const Navbar = () => {
   const [scrollTop, setScrollTop] = useState(0);
   const [toggled, setToggled] = useState(true);
+  const { route } = useRouter();
 
   useEffect(() => {
     const onScroll = () => {
@@ -27,8 +29,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`px-2 sm:px-4 py-2.5 transition-colors ${
-        scrollTop != 0 ? "bg-zinc-50 dark:bg-zinc-900" : "bg-base-light dark:bg-base-dark"
+      className={`px-2 sm:px-4 py-2.5 transition-colors bg-base-light dark:bg-base-dark bg-opacity-50 dark:bg-opacity-50  ${
+        scrollTop != 0 ? "backdrop-blur-md dark:backdrop-blur-md" : ""
       } fixed w-full z-20 top-0 left-0 border-b border-zinc-200 dark:border-zinc-600`}
     >
       <div className="container flex flex-wrap justify-between items-center mx-auto max-w-7xl">
@@ -51,7 +53,7 @@ const Navbar = () => {
           </a>
 
           <a
-            className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
+            className="text-white bg-purple-700 hover:bg-purple-800 !no-underline focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
             href="https://github.com/crystal-linux/iso/releases/latest"
           >
             Download
@@ -83,10 +85,16 @@ const Navbar = () => {
             toggled ? "hidden" : ""
           } md:visible justify-between items-center w-full md:flex md:w-auto md:order-1`}
         >
-          <ul className="flex flex-col gap-2 md:gap-0 p-4 mt-4 rounded-lg border border-zinc-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 bg-inherit dark:border-zinc-700">
+          <ul className="flex flex-col gap-2 md:gap-0 p-4 mt-4 rounded-lg border border-zinc-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 bg-base-light dark:bg-base-dark md:bg-inherit md:dark:bg-inherit dark:border-zinc-700">
             <li>
               <Link href="/">
-                <a className="block py-2 pr-4 pl-3 text-white bg-purple-700 rounded md:bg-transparent md:text-purple-700 md:p-0 dark:text-white">
+                <a
+                  className={`block py-2 pr-4 pl-3 rounded md:bg-transparent ${
+                    route === "/"
+                      ? "bg-purple-700 md:text-purple-700 text-white md:dark:text-white"
+                      : "text-zinc-700 dark:text-zinc-400"
+                  } md:p-0`}
+                >
                   Home
                 </a>
               </Link>
@@ -102,6 +110,19 @@ const Navbar = () => {
                   icon={faArrowUpRightFromSquare}
                 />
               </a>
+            </li>
+            <li>
+              <Link href="/docs/">
+                <a
+                  className={`block py-2 pr-4 pl-3 rounded md:bg-transparent ${
+                    route.split("/")[1] === "docs"
+                      ? "bg-purple-700 md:text-purple-700 text-white dark:text-white"
+                      : "text-zinc-700 dark:text-zinc-400"
+                  } md:p-0`}
+                >
+                  Docs
+                </a>
+              </Link>
             </li>
             <div
               className={`${
