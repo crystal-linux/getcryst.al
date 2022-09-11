@@ -28,44 +28,51 @@ const TreeNode: FC<{ node: node; path: string }> = ({
           {children.length > 0 ? (
             <button
               onClick={() => setToggled(!toggled)}
-              className={`text-left ${
+              className={`text-left mt-1 ${
                 current
                   ? "text-black font-semibold"
                   : "text-gray-700 hover:text-black"
               }`}
             >
               <FontAwesomeIcon
-                className="mr-2 text-gray-500"
+                className="mr-1 text-gray-500"
                 icon={toggled ? faCaretDown : faCaretRight}
+                fixedWidth={true}
               />
               {pretty ? pretty : value}
             </button>
           ) : (
-            <Link href={path}>
-              <a
-                className={`${
-                  current && children.length === 0 ? "text-purple-700" : ""
-                } ${
-                  current
-                    ? "font-semibold"
-                    : "font-normal text-gray-800 hover:text-black"
-                } hover:no-underline`}
-              >
-              {pretty ? pretty : value}
-              </a>
-            </Link>
+            <span className="flex items-center gap-2">
+              <span className="text-gray-500">•</span>
+              <Link href={path}>
+                <a
+                  className={`${
+                    current && children.length === 0 ? "text-purple-700" : ""
+                  } ${
+                    current
+                      ? "font-semibold"
+                      : "font-normal text-gray-800 hover:text-black"
+                  } hover:no-underline mt-1`}
+                >
+                  {pretty ? pretty : value}
+                </a>
+              </Link>
+            </span>
           )}
         </>
       )}
 
-      {toggled &&
-        children.map((child) => (
-          <TreeNode
-            key={child.value}
-            node={child}
-            path={`${path}/${child.value}`}
-          />
-        ))}
+      {toggled && children.length > 0 && (
+        <div className={`flex flex-col pl-2 ml-1 ${value !== "root" ? "border-l-gray-300 border-l" : ""}`}>
+          {children.map((child) => (
+            <TreeNode
+              key={child.value}
+              node={child}
+              path={`${path}/${child.value}`}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 };
