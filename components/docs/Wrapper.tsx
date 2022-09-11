@@ -4,7 +4,7 @@ const DocWrapper: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   return <>
-    <article className="prose dark:prose-invert">
+    <article className="prose dark:prose-invert w-2/3">
       {children}
     </article>
   </>;

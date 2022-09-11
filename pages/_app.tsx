@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import { MDXProvider } from '@mdx-js/react'
 import type { AppProps } from "next/app";
 import Layout from "../components/layout";
 import { DefaultSeo } from "next-seo";
@@ -13,9 +14,11 @@ function GetCrystal({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <Layout>
-        <DefaultSeo {...SEO} />
+        <MDXProvider>
+          <DefaultSeo {...SEO} />
 
-        <Component {...pageProps} />
+          <Component {...pageProps} />
+        </MDXProvider>
       </Layout>
     </ThemeProvider>
   );

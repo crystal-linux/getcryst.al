@@ -1,14 +1,17 @@
-# Detailed Usage
+---
+title: Detailed Usage
+---
+
 Work it harder, make it better! 
 
-### Global Flags
+## Global Flags
 
 | Flag              | Description                                                                                                                            |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `--verbose`, `-v` | Prints lots of debug information to `stderr`. If something doesn't go right, sending us the output with this enabled will help greatly |
 | `--exclude`, `-x` | Excludes the supplied package from the current operation. Can be used multiple times.                                                  |
 
-### Basic Commands
+## Basic Commands
 
 | Action                                                                                  | Command                                   | Extra Flags                                                                                                      |
 |-----------------------------------------------------------------------------------------|-------------------------------------------|------------------------------------------------------------------------------------------------------------------|
@@ -20,7 +23,7 @@ Work it harder, make it better!
 | Displays an info panel/overview of the current repo                                     | `mlc info/status`                         |                                                                                                                  |
 | Resets Malachite repository by deleting all directories, omitting `mlc.toml` and `.git` | `mlc clean/reset`                         | `--force`: Remove dirty directories (unstaged, untracked, etc)                                                   |
 
-### Exit Codes
+## Exit Codes
 
 | AppExitCode (named Enum) | Exit code (i32) | Error Description                                                                                      |
 |--------------------------|-----------------|--------------------------------------------------------------------------------------------------------|

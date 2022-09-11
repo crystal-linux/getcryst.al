@@ -1,10 +1,10 @@
-import { faCaretDown, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { FC, useState } from "react";
 
 const TreeNode: FC<{ node: node; path: string }> = ({
-  node: { children, value, current },
+  node: { children, value, current, pretty },
   path,
 }) => {
   const [toggled, setToggled] = useState(current);
@@ -29,11 +29,16 @@ const TreeNode: FC<{ node: node; path: string }> = ({
             <button
               onClick={() => setToggled(!toggled)}
               className={`text-left ${
-                current ? "text-black font-semibold" : "text-gray-700 hover:text-black"
+                current
+                  ? "text-black font-semibold"
+                  : "text-gray-700 hover:text-black"
               }`}
             >
-              <FontAwesomeIcon className="mr-2 text-gray-500" icon={toggled ? faCaretDown : faCaretLeft} />
-              {value}
+              <FontAwesomeIcon
+                className="mr-2 text-gray-500"
+                icon={toggled ? faCaretDown : faCaretRight}
+              />
+              {pretty ? pretty : value}
             </button>
           ) : (
             <Link href={path}>
@@ -46,7 +51,7 @@ const TreeNode: FC<{ node: node; path: string }> = ({
                     : "font-normal text-gray-800 hover:text-black"
                 } hover:no-underline`}
               >
-                {value}
+              {pretty ? pretty : value}
               </a>
             </Link>
           )}

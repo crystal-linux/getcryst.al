@@ -17,7 +17,7 @@ const ThemeSwitcherNative = () => {
   }
 
   return (
-    <div className="relative flex gap-2 capitalize items-center ring-1 ring-gray-900/10 rounded-lg shadow-sm p-2 px-4 text-gray-700 font-semibold dark:bg-gray-700 dark:ring-0 dark:highlight-white/5 dark:text-gray-200">
+    <div className="relative flex gap-2 capitalize items-center ring-1 ring-zinc-900/10 rounded-lg shadow-sm p-2 px-4 text-zinc-700 font-semibold dark:bg-zinc-700 dark:ring-0 dark:highlight-white/5 dark:text-zinc-200">
       <FontAwesomeIcon icon={resolvedTheme === "light" ? faSun : faMoon} />
       {theme}
       <FontAwesomeIcon icon={faAngleDown} size="sm" />
