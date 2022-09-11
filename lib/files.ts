@@ -6,6 +6,7 @@ export async function* walkFiles(dir: string): AsyncGenerator<string> {
   for (const dirent of dirents) {
     const res = resolve(dir, dirent.name);
     if (dirent.isDirectory()) {
+      yield res;
       yield* walkFiles(res);
     } else {
       yield res;

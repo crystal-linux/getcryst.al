@@ -4,11 +4,12 @@ import { FC } from "react";
 import { resolve } from "path";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { removeExt, walkFiles } from "../../lib/files";
-import { readFile } from "fs/promises";
+import { lstat, readFile } from "fs/promises";
 import { readdir } from "fs/promises";
 import remarkGfm from "remark-gfm";
 import TreeNode from "../../components/TreeNode";
-import { inspect } from "util";
+import fm from "front-matter";
+import DocWrapper from "../../components/docs/Wrapper";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths: {
@@ -28,6 +29,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
     });
   }
 
+  paths.push({
+    params: {
+      slug: [],
+    },
+  });
+
   return {
     paths,
     fallback: false,
@@ -35,32 +42,57 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const slug = context.params!.slug as string[];
-  const path = ["_docs", ...slug].join("/") + ".mdx";
+  const slug =
+    context.params!.slug === undefined
+      ? []
+      : (context.params!.slug as string[]);
+
+  let path = ["_docs", ...slug].join("/");
+
+  try {
+    if ((await lstat(path)).isDirectory()) {
+      const dirents = await readdir(resolve(process.cwd(), path));
+
+      return {
+        props: {},
+        redirect: {
+          destination: `/docs/${slug.join("/")}/${removeExt(dirents.shift()!)}`,
+          permanent: false,
+        },
+      };
+    }
+  } catch {}
+
+  path = path + ".mdx";
 
   const walk = async (node: node, dir: string, i = 0) => {
     const dirents = await readdir(resolve(process.cwd(), dir), {
       withFileTypes: true,
     });
     for (const dirent of dirents) {
-      const current = slug[i] === removeExt(dirent.name) && node.current
+      const current = slug[i] === removeExt(dirent.name) && node.current;
       if (dirent.isDirectory()) {
         node.children.push(
           await walk(
             {
               value: removeExt(dirent.name),
               children: [],
-              current
+              current,
             },
             resolve(dir, dirent.name),
             i + 1
           )
         );
       } else {
+        const contents = (await readFile(resolve(dir, dirent.name))).toString();
+        const frontmatter = fm<FrontMatter>(contents);
         node.children.push({
           value: removeExt(dirent.name),
+          pretty: frontmatter.attributes.title
+            ? frontmatter.attributes.title
+            : null,
           children: [],
-          current
+          current,
         });
       }
     }
@@ -71,7 +103,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     {
       value: "root",
       children: [],
-      current: true
+      current: true,
     },
     "_docs/"
   );
@@ -93,14 +125,17 @@ const DocPage: FC<{ source: MDXRemoteSerializeResult; tree: node }> = ({
   source,
   tree,
 }) => {
-  console.log(inspect(tree, {colors: true, depth: null}))
   return (
     <>
-      <div className="flex max-w-3xl justify-between mx-auto pt-28 md:pt-40">
-        <aside className="flex flex-col">
+      <div className="flex pt-28 gap-4 justify-center md:pt-40">
+        <aside className="flex flex-col w-60">
           <TreeNode node={tree} path="/docs" />
         </aside>
-        <MDXRemote {...source} />
+        
+        <DocWrapper>
+          {source.frontmatter?.title && <h1>{source.frontmatter.title}</h1>}
+          <MDXRemote {...source} />
+        </DocWrapper>
       </div>
     </>
   );
