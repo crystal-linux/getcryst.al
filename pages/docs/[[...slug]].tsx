@@ -70,6 +70,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
       withFileTypes: true,
     });
     for (const dirent of dirents) {
+      if (dirent.name.startsWith(".")) {
+        continue
+      }
+
       const current = slug[i] === removeExt(dirent.name) && node.current;
       if (dirent.isDirectory()) {
         node.children.push(
