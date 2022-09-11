@@ -30,8 +30,8 @@ const TreeNode: FC<{ node: node; path: string }> = ({
               onClick={() => setToggled(!toggled)}
               className={`text-left mt-1 ${
                 current
-                  ? "text-black font-semibold"
-                  : "text-gray-700 hover:text-black"
+                  ? "text-black dark:text-white font-semibold"
+                  : "text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-gray-100"
               }`}
             >
               <FontAwesomeIcon
@@ -47,11 +47,11 @@ const TreeNode: FC<{ node: node; path: string }> = ({
               <Link href={path}>
                 <a
                   className={`${
-                    current && children.length === 0 ? "text-purple-700" : ""
+                    current && children.length === 0 ? "text-purple-700 dark:text-white" : ""
                   } ${
                     current
                       ? "font-semibold"
-                      : "font-normal text-gray-800 hover:text-black"
+                      : "font-normal text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-gray-100"
                   } hover:no-underline mt-1`}
                 >
                   {pretty ? pretty : value}
