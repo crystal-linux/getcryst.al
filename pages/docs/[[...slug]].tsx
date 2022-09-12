@@ -11,7 +11,6 @@ import TreeNode from "../../components/TreeItem";
 import fm from "front-matter";
 import DocWrapper from "../../components/docs/Wrapper";
 import { TreeItem, TreeItemConstructor } from "../../lib/tree";
-import { inspect } from "util";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths: {
@@ -81,23 +80,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
           };
         }
       } else {
-        try {
-          const contents = (
-            await readFile(resolve(dir, dirent.name))
-          ).toString();
+        const contents = (await readFile(resolve(dir, dirent.name))).toString();
 
-          const frontmatter = fm<FrontMatter>(contents);
-          node.addChild(
-            new TreeItemConstructor(
-              removeExt(dirent.name),
-              current,
-              frontmatter.attributes.title
-                ? frontmatter.attributes.title
-                : null,
-              frontmatter.attributes.weight ? frontmatter.attributes.weight : 0
-            )
-          );
-        } catch (e) {}
+        const frontmatter = fm<FrontMatter>(contents);
+        node.addChild(
+          new TreeItemConstructor(
+            removeExt(dirent.name),
+            current,
+            frontmatter.attributes.title ? frontmatter.attributes.title : null,
+            frontmatter.attributes.weight ? frontmatter.attributes.weight : 0
+          )
+        );
       }
     }
     return node;
