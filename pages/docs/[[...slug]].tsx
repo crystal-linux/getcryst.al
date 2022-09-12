@@ -75,7 +75,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             permanent: false,
             destination: `/docs/${slug.join("/")}/${
               node.children[
-                node.children.findIndex(a => a.value === slug[i])
+                node.children.findIndex((a) => a.value === slug[i])
               ].children.shift()!.value
             }`,
           };
@@ -105,8 +105,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const tree = await walk(new TreeItemConstructor("root", true), "_docs/");
 
+  if (slug.length === 0) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: `/docs/${slug.join("/")}/${tree.children.shift()!.value}`,
+      },
+    };
+  }
+
   if (redirect) {
-    return { props: { tree }, redirect };
+    return { redirect };
   }
 
   const mdxSource = await serialize(
