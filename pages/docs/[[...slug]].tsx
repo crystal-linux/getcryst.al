@@ -2,8 +2,8 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { FC } from "react";
 import { resolve } from "path";
-import { GetStaticPaths, GetStaticProps, Redirect } from "next";
-import { removeExt, walkFiles } from "../../lib/files";
+import { GetStaticProps, Redirect } from "next";
+import { removeExt } from "../../lib/files";
 import { readFile } from "fs/promises";
 import { readdir } from "fs/promises";
 import remarkGfm from "remark-gfm";
@@ -11,42 +11,19 @@ import TreeNode from "../../components/TreeItem";
 import fm from "front-matter";
 import DocWrapper from "../../components/docs/Wrapper";
 import { TreeItem, TreeItemConstructor } from "../../lib/tree";
+import { validPaths } from "../../lib/docs";
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: {
-    params: {
-      slug: string[];
-    };
-  }[] = [];
-
-  for await (const file of walkFiles("_docs/")) {
-    const path = file.slice(resolve(process.cwd(), "_docs/").length);
-
-    paths.push({
-      params: {
-        // This is cursed
-        slug: removeExt(path).split("/").slice(1),
-      },
-    });
-  }
-
-  paths.push({
-    params: {
-      slug: [],
-    },
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetStaticProps = async (context) => {
   const slug =
     context.params!.slug === undefined
       ? []
       : (context.params!.slug as string[]);
+
+  if (!validPaths.find(path => JSON.stringify(path) === JSON.stringify(slug))) {
+    return {
+      notFound: true
+    }
+  }
 
   let path = ["_docs", ...slug].join("/") + ".mdx";
 
