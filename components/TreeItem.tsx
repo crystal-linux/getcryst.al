@@ -2,8 +2,9 @@ import { faCaretDown, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { FC, useState } from "react";
+import { TreeItem } from "../lib/tree";
 
-const TreeNode: FC<{ node: node; path: string }> = ({
+const TreeNode: FC<{ node: TreeItem; path: string }> = ({
   node: { children, value, current, pretty },
   path,
 }) => {

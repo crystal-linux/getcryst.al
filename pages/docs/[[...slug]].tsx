@@ -4,12 +4,14 @@ import { FC } from "react";
 import { resolve } from "path";
 import { GetStaticPaths, GetStaticProps, Redirect } from "next";
 import { removeExt, walkFiles } from "../../lib/files";
-import { lstat, readFile } from "fs/promises";
+import { readFile } from "fs/promises";
 import { readdir } from "fs/promises";
 import remarkGfm from "remark-gfm";
-import TreeNode from "../../components/TreeNode";
+import TreeNode from "../../components/TreeItem";
 import fm from "front-matter";
 import DocWrapper from "../../components/docs/Wrapper";
+import { TreeItem, TreeItemConstructor } from "../../lib/tree";
+import { inspect } from "util";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths: {
@@ -47,54 +49,34 @@ export const getStaticProps: GetStaticProps = async (context) => {
       ? []
       : (context.params!.slug as string[]);
 
-  let path = ["_docs", ...slug].join("/");
-
-  // try {
-  //   if ((await lstat(path)).isDirectory()) {
-  //     const dirents = await readdir(resolve(process.cwd(), path));
-  //
-  //     return {
-  //       props: {},
-  //       redirect: {
-  //         destination: `/docs/${slug.join("/")}/${removeExt(dirents.shift()!)}`,
-  //         permanent: false,
-  //       },
-  //     };
-  //   }
-  // } catch {}
-
-  path = path + ".mdx";
+  let path = ["_docs", ...slug].join("/") + ".mdx";
 
   let redirect: Redirect | null = null;
 
-  const walk = async (node: node, dir: string, i = 0) => {
+  const walk = async (node: TreeItemConstructor, dir: string, i = 0) => {
     const dirents = await readdir(resolve(process.cwd(), dir), {
       withFileTypes: true,
     });
-    for (const dirent of dirents) {
-      if (dirent.name.startsWith(".")) {
-        continue;
-      }
-
+    for (const dirent of dirents.filter(
+      (dirent) => !dirent.name.startsWith(".")
+    )) {
       const current = slug[i] === removeExt(dirent.name) && node.current;
       if (dirent.isDirectory()) {
-        const child = await walk(
-          {
-            value: removeExt(dirent.name),
-            children: [],
-            current,
-          },
-          resolve(dir, dirent.name),
-          i + 1
+        node.addChild(
+          await walk(
+            new TreeItemConstructor(removeExt(dirent.name), current, null, 0),
+            resolve(dir, dirent.name),
+            i + 1
+          )
         );
-        node.children.push(child);
 
         if (current && i + 1 == slug.length && node.children.length > 0) {
-          // We are a directory AND the path
           redirect = {
             permanent: false,
             destination: `/docs/${slug.join("/")}/${
-              node.children[0].children.shift()!.value
+              node.children[
+                node.children.findIndex(a => a.value === slug[i])
+              ].children.shift()!.value
             }`,
           };
         }
@@ -105,28 +87,23 @@ export const getStaticProps: GetStaticProps = async (context) => {
           ).toString();
 
           const frontmatter = fm<FrontMatter>(contents);
-          node.children.push({
-            value: removeExt(dirent.name),
-            pretty: frontmatter.attributes.title
-              ? frontmatter.attributes.title
-              : null,
-            children: [],
-            current,
-          });
+          node.addChild(
+            new TreeItemConstructor(
+              removeExt(dirent.name),
+              current,
+              frontmatter.attributes.title
+                ? frontmatter.attributes.title
+                : null,
+              frontmatter.attributes.weight ? frontmatter.attributes.weight : 0
+            )
+          );
         } catch (e) {}
       }
     }
     return node;
   };
 
-  const tree = await walk(
-    {
-      value: "root",
-      children: [],
-      current: true,
-    },
-    "_docs/"
-  );
+  const tree = await walk(new TreeItemConstructor("root", true), "_docs/");
 
   if (redirect) {
     return { props: { tree }, redirect };
@@ -142,10 +119,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
   );
 
-  return { props: { source: mdxSource, tree } };
+  return { props: { source: mdxSource, tree: tree.plain() } };
 };
 
-const DocPage: FC<{ source: MDXRemoteSerializeResult; tree: node }> = ({
+const DocPage: FC<{ source: MDXRemoteSerializeResult; tree: TreeItem }> = ({
   source,
   tree,
 }) => {
