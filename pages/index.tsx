@@ -36,6 +36,7 @@ const Home: NextPage = () => {
           <a
             href={entry.link}
             target="_blank"
+            rel="noreferrer"
             className="hover:text-purple-700"
             key={entry.link}
           >
@@ -48,7 +49,7 @@ const Home: NextPage = () => {
         <div>
           <h2>Why Crystal?</h2>
           <p>
-            What's so different about Crystal compared to other distributions?
+            What{"'"}s so different about Crystal compared to other distributions?
           </p>
           <ul className="list-disc list-inside text-left flex flex-col gap-4 text-xl">
             <li>Easy to use package manager</li>
