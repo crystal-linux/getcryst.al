@@ -139,7 +139,7 @@ const DocPage: FC<{ source: MDXRemoteSerializeResult; tree: TreeItem }> = ({
 }) => {
   return (
     <>
-      <div className="pt-28 md:pt-40">
+      <div className="pt-28 max-w-7xl mx-auto md:pt-24">
         <aside className="flex fixed align-top right-auto w-80 px-8 flex-col break-normal">
           <TreeNode node={tree} path="/docs" />
         </aside>
