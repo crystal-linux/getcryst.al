@@ -30,7 +30,7 @@ const ThemeSwitcherIcon = () => {
           resolvedTheme !== "system" && theme !== "system"
             ? "text-purple-500"
             : "text-gray-600 dark:text-gray-300"
-        } hover:bg-gray-100 hidden focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center md:inline-flex items-center mr-2 dark:hover:bg-zinc-700`}
+        } hover:bg-gray-100 hidden focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center md:inline-flex items-center mr-2 dark:hover:bg-gray-700`}
         type="button"
         onClick={() => {
           setToggled(!toggled);

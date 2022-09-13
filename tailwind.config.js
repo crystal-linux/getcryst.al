@@ -10,10 +10,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // gray: colors.zinc,
+        gray: colors.zinc,
         base: {
-          dark: colors.zinc[800],
-          light: colors.zinc[100],
+          dark: colors.gray[800],
+          light: colors.gray[100],
         },
       },
     },

@@ -44,7 +44,7 @@ const Home: NextPage = () => {
         ))}
       </div>
 
-      <div className="flex flex-wrap align-middle my-4 justify-center [&_div]:max-w-sm [&_div]:flex [&_div]:flex-col [&_div]:items-center [&_div]:p-6 [&_div]:gap-4 [&_div]:bg-zinc-300 [&_div]:dark:bg-gray-900">
+      <div className="flex flex-wrap align-middle my-4 justify-center [&_div]:max-w-sm [&_div]:flex [&_div]:flex-col [&_div]:items-center [&_div]:p-6 [&_div]:gap-4 [&_div]:bg-gray-300 [&_div]:dark:bg-gray-900">
         <div>
           <h2>Why Crystal?</h2>
           <p>
