@@ -1,9 +1,9 @@
 export interface TreeItem {
-  value: string,
-  current: boolean,
-  children: TreeItem[],
-  weight: number,
-  pretty: string | null
+  value: string;
+  current: boolean;
+  children: TreeItem[];
+  weight: number;
+  pretty: string | null;
 }
 
 export class TreeItemConstructor {
@@ -21,22 +21,28 @@ export class TreeItemConstructor {
   ) {
     this.value = value;
     this.current = current;
-    this.pretty = pretty
+    this.pretty = pretty;
     this.weight = weight;
   }
 
   addChild(child: TreeItemConstructor) {
-    this.children.push(child)
-    this.children.sort((a, b) => b.weight - a.weight);
+    this.children.push(child);
   }
 
   plain(): TreeItem {
     return {
       value: this.value,
       current: this.current,
-      children: this.children.map(child => child.plain()),
+      children: this.children.map((child) => child.plain()),
       weight: this.weight,
-      pretty: this.pretty
-    }
+      pretty: this.pretty,
+    };
+  }
+
+  sort() {
+    this.children.forEach((child) => child.sort());
+    this.children.sort((a, b) => b.weight - a.weight);
+
+    return this
   }
 }
