@@ -5,6 +5,8 @@
 @layer base {
   html {
     font-family: "Inter", sans-serif;
+
+    scroll-padding-top: 80px;
   }
   body {
     @apply min-h-screen bg-base-light dark:bg-base-dark;
