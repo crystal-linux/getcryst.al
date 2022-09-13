@@ -22,3 +22,15 @@
     @apply hover:underline font-semibold hover:cursor-pointer;
   }
 }
+
+@for $i from 1 through 6 {
+  .prose h#{$i} > a {
+    font-weight: inherit !important;
+    text-decoration-line: none;
+    color: inherit !important;
+
+    &:hover {
+      text-decoration-line: underline;
+    }
+  }
+}

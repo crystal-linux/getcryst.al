@@ -13,6 +13,8 @@ import DocWrapper from "../../components/docs/Wrapper";
 import { TreeItem, TreeItemConstructor } from "../../lib/tree";
 import { validPaths } from "../../lib/docs";
 import { load } from "js-yaml";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 
 export const getServerSideProps: GetStaticProps = async (context) => {
   const slug =
@@ -115,6 +117,15 @@ export const getServerSideProps: GetStaticProps = async (context) => {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkGfm],
+        rehypePlugins: [
+          rehypeSlug,
+          [
+            rehypeAutolinkHeadings,
+            {
+              behavior: "wrap",
+            },
+          ],
+        ],
       },
     }
   );

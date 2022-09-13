@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../styles/globals.scss";
 import { MDXProvider } from '@mdx-js/react'
 import type { AppProps } from "next/app";
 import Layout from "../components/layout";
