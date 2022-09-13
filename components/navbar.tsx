@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="container flex flex-wrap justify-between items-center mx-auto max-w-7xl">
         <Link href="/">
           <a className="flex items-center gap-2">
-            <Image src="/svg/crystal-logo.svg" width={35} height={35} />
+            <Image src="/svg/crystal-logo.svg" width={35} height={35} alt="" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               Crystal Linux
             </span>
