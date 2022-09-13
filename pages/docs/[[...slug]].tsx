@@ -1,10 +1,10 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { FC } from "react";
-import { resolve } from "path";
+import { join, resolve } from "path";
 import { GetStaticProps, Redirect } from "next";
 import { removeExt } from "../../lib/files";
-import { readFile } from "fs/promises";
+import { readFile, stat } from "fs/promises";
 import { readdir } from "fs/promises";
 import remarkGfm from "remark-gfm";
 import TreeNode from "../../components/TreeItem";
@@ -12,6 +12,7 @@ import fm from "front-matter";
 import DocWrapper from "../../components/docs/Wrapper";
 import { TreeItem, TreeItemConstructor } from "../../lib/tree";
 import { validPaths } from "../../lib/docs";
+import { load } from "js-yaml";
 
 export const getServerSideProps: GetStaticProps = async (context) => {
   const slug =
@@ -19,10 +20,12 @@ export const getServerSideProps: GetStaticProps = async (context) => {
       ? []
       : (context.params!.slug as string[]);
 
-  if (!validPaths.find(path => JSON.stringify(path) === JSON.stringify(slug))) {
+  if (
+    !validPaths.find((path) => JSON.stringify(path) === JSON.stringify(slug))
+  ) {
     return {
-      notFound: true
-    }
+      notFound: true,
+    };
   }
 
   let path = ["_docs", ...slug].join("/") + ".mdx";
@@ -46,6 +49,20 @@ export const getServerSideProps: GetStaticProps = async (context) => {
           )
         );
 
+        try {
+          const configFile = join(resolve(dir, dirent.name), ".config.yaml");
+          const config = await stat(configFile);
+
+          if (config.isFile()) {
+            const { title, weight } = load(
+              (await readFile(configFile)).toString(),
+              {}
+            ) as FrontMatter;
+            if (title) node.children.at(-1)!.pretty = title;
+            if (weight) node.children.at(-1)!.weight = weight;
+          }
+        } catch (_) {}
+
         if (current && i + 1 == slug.length && node.children.length > 0) {
           redirect = {
             permanent: false,
@@ -59,13 +76,15 @@ export const getServerSideProps: GetStaticProps = async (context) => {
       } else {
         const contents = (await readFile(resolve(dir, dirent.name))).toString();
 
-        const frontmatter = fm<FrontMatter>(contents);
+        const {
+          attributes: { title, weight },
+        } = fm<FrontMatter>(contents);
         node.addChild(
           new TreeItemConstructor(
             removeExt(dirent.name),
             current,
-            frontmatter.attributes.title ? frontmatter.attributes.title : null,
-            frontmatter.attributes.weight ? frontmatter.attributes.weight : 0
+            title ? title : null,
+            weight ? weight : 0
           )
         );
       }
@@ -73,7 +92,9 @@ export const getServerSideProps: GetStaticProps = async (context) => {
     return node;
   };
 
-  const tree = await walk(new TreeItemConstructor("root", true), "_docs/");
+  const tree = (
+    await walk(new TreeItemConstructor("root", true), "_docs/")
+  ).sort();
 
   if (slug.length === 0) {
     return {
