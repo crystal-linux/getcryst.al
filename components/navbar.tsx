@@ -10,7 +10,7 @@ import ThemeSwitcherNative from "./ThemeSwitcher/Native";
 
 const Navbar = () => {
   const [scrollTop, setScrollTop] = useState(0);
-  const [toggled, setToggled] = useState(true);
+  const [toggled, setToggled] = useState(false);
   const { route } = useRouter();
 
   useEffect(() => {
@@ -29,15 +29,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`py-2.5 transition-colors bg-base-light dark:bg-base-dark bg-opacity-80 dark:bg-opacity-80  ${
-        scrollTop != 0 ? "backdrop-blur-md dark:backdrop-blur-md" : ""
-      } fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600`}
+      className={`bg-ctp-base py-2.5 ${
+        scrollTop != 0 && !toggled ? "bg-opacity-80 backdrop-blur-md " : ""
+      } fixed top-0 left-0 z-20 w-full border-b border-ctp-mantle`}
     >
-      <div className="container flex flex-wrap justify-between items-center mx-auto max-w-8xl px-8">
+      <div className="container mx-auto flex max-w-8xl flex-wrap items-center justify-between px-8">
         <Link href="/">
           <a className="flex items-center gap-2">
             <Image src="/svg/crystal-logo.svg" width={35} height={35} alt="" />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center whitespace-nowrap text-xl font-semibold text-ctp-text">
               Crystal Linux
             </span>
           </a>
@@ -46,28 +46,28 @@ const Navbar = () => {
           <ThemeSwitcherIcon />
           <a
             type="button"
-            className="text-gray-500 dark:text-gray-300 hover:bg-gray-100 hidden focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center md:inline-flex items-center mr-2 dark:hover:bg-gray-700"
+            className="mr-2 hidden items-center rounded-lg p-2.5 text-center text-sm font-medium text-ctp-subtext0 focus:outline-none focus:ring-4 md:inline-flex"
             href="https://github.com/crystal-linux/"
           >
             <FontAwesomeIcon icon={faGithub} size="lg" />
           </a>
 
           <a
-            className="text-white bg-purple-700 hover:bg-purple-800 !no-underline focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
+            className="mr-3 rounded-lg bg-ctp-mauve px-5 py-2.5 text-center text-sm font-medium text-ctp-base !no-underline focus:outline-none focus:ring-4 md:mr-0"
             href="https://github.com/crystal-linux/iso/releases/latest"
           >
             Download
           </a>
           <button
             type="button"
-            className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center rounded-lg p-2 text-sm text-ctp-subtext0 hover:bg-ctp-mantle focus:outline-none focus:ring-4 md:hidden"
             onClick={() => {
               setToggled(!toggled);
             }}
           >
             <span className="sr-only">Open main menu</span>
             <svg
-              className="w-6 h-6"
+              className="h-6 w-6"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -82,17 +82,17 @@ const Navbar = () => {
         </div>
         <div
           className={`${
-            toggled ? "hidden" : ""
-          } md:visible justify-between items-center w-full md:flex md:w-auto md:order-1`}
+            !toggled ? "hidden" : ""
+          } w-full items-center justify-between md:visible md:order-1 md:flex md:w-auto`}
         >
-          <ul className="flex flex-col gap-2 md:gap-0 p-4 mt-4 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 bg-base-light dark:bg-base-dark md:bg-inherit md:dark:bg-inherit dark:border-gray-700">
+          <ul className="mt-4 flex flex-col gap-2 rounded-lg border border-ctp-mantle bg-ctp-base p-4 md:mt-0 md:flex-row md:gap-0 md:space-x-8 md:border-0 md:bg-inherit md:text-sm md:font-medium md:dark:bg-inherit">
             <li>
               <Link href="/">
                 <a
-                  className={`block py-2 pr-4 pl-3 rounded md:bg-transparent ${
+                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${
                     route === "/"
-                      ? "bg-purple-700 md:text-purple-700 text-white md:dark:text-white"
-                      : "text-gray-700 dark:text-gray-400"
+                      ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
+                      : "text-ctp-text md:hover:text-ctp-mauve"
                   } md:p-0`}
                 >
                   Home
@@ -102,7 +102,7 @@ const Navbar = () => {
             <li>
               <a
                 href="https://forum.getcryst.al/"
-                className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-purple-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="md:dark:hover:bg-transparen block rounded py-2 pr-4 pl-3 text-ctp-text md:p-0 md:hover:bg-transparent md:hover:text-ctp-mauve"
               >
                 Forum
                 <FontAwesomeIcon
@@ -114,10 +114,10 @@ const Navbar = () => {
             <li>
               <Link href="/docs/">
                 <a
-                  className={`block py-2 pr-4 pl-3 rounded md:bg-transparent ${
+                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${
                     route.split("/")[1] === "docs"
-                      ? "bg-purple-700 md:text-purple-700 text-white dark:text-white"
-                      : "text-gray-700 dark:text-gray-400"
+                      ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
+                      : "text-ctp-text md:hover:text-ctp-mauve"
                   } md:p-0`}
                 >
                   Docs
@@ -126,10 +126,10 @@ const Navbar = () => {
             </li>
             <div
               className={`${
-                toggled ? "hidden" : ""
-              } md:hidden flex items-center justify-between pt-4 mt-2 border-gray-200 dark:border-gray-600 border-t px-2`}
+                !toggled ? "hidden" : ""
+              } mt-2 flex items-center justify-between border-t border-ctp-mantle px-2 pt-4 md:hidden`}
             >
-              <p className="text-gray-700 dark:text-gray-400">Switch Theme</p>
+              <p className="text-ctp-text">Switch Theme</p>{" "}
               <ThemeSwitcherNative />
             </div>
           </ul>

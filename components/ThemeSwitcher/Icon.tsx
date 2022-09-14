@@ -28,9 +28,9 @@ const ThemeSwitcherIcon = () => {
       <button
         className={`${
           resolvedTheme !== "system" && theme !== "system"
-            ? "text-purple-500"
-            : "text-gray-600 dark:text-gray-300"
-        } hover:bg-gray-100 hidden focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center md:inline-flex items-center mr-2 dark:hover:bg-gray-700`}
+            ? "text-ctp-mauve"
+            : "text-ctp-subtext1"
+        } mr-2 hidden items-center rounded-lg p-2.5 text-center text-sm font-medium hover:bg-ctp-mantle focus:outline-none focus:ring-4 md:inline-flex`}
         type="button"
         onClick={() => {
           setToggled(!toggled);
@@ -50,8 +50,8 @@ const ThemeSwitcherIcon = () => {
       </button>
       <div
         className={`${
-          !toggled ? "hidden" : ""
-        } z-10 w-32 bg-white font-semibold rounded divide-y divide-gray-100 shadow dark:bg-gray-700 absolute mt-12`}
+          !toggled ? "hidden " : ""
+        }z-10 absolute mt-12 w-32 rounded bg-ctp-base font-semibold shadow`}
         ref={ref}
         onBlur={(e) => {
           const currentTarget = e.currentTarget;
@@ -65,14 +65,14 @@ const ThemeSwitcherIcon = () => {
         }}
       >
         <ul
-          className="py-1 text-sm text-gray-700 dark:text-gray-200"
+          className="py-1 text-sm text-ctp-text"
           aria-labelledby="dropdownDefault"
         >
           <li>
             <button
               className={`${
-                theme === "light" ? "text-purple-500" : ""
-              } py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 flex items-center gap-2 w-full`}
+                theme === "light" ? "text-ctp-mauve" : ""
+              } flex w-full items-center gap-2 py-2 px-4 hover:bg-ctp-mantle`}
               onClick={() => changeTheme("light")}
             >
               <FontAwesomeIcon size="lg" icon={faSun} />
@@ -82,8 +82,8 @@ const ThemeSwitcherIcon = () => {
           <li>
             <button
               className={`${
-                theme === "dark" ? "text-purple-500" : ""
-              } py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 flex items-center gap-2 w-full`}
+                theme === "dark" ? "text-ctp-mauve" : ""
+              } flex w-full items-center gap-2 py-2 px-4 hover:bg-ctp-mantle`}
               onClick={() => changeTheme("dark")}
             >
               <FontAwesomeIcon size="lg" icon={faMoon} />
@@ -93,8 +93,8 @@ const ThemeSwitcherIcon = () => {
           <li>
             <button
               className={`${
-                theme === "system" ? "text-purple-500" : ""
-              } py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 flex items-center gap-2 w-full`}
+                theme === "system" ? "text-ctp-mauve" : ""
+              } flex w-full items-center gap-2 py-2 px-4 hover:bg-ctp-mantle`}
               onClick={() => changeTheme("system")}
             >
               <FontAwesomeIcon size="lg" icon={faDisplay} />
