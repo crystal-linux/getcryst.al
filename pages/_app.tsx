@@ -13,7 +13,11 @@ config.autoAddCss = false;
 
 function GetCrystal({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider
+      attribute="class"
+      value={{ light: "ctp-latte", dark: "ctp-mocha" }}
+      themes={["ctp-mocha", "ctp-latte"]}
+    >
       <Layout>
         <MDXProvider>
           <DefaultSeo {...SEO} />
