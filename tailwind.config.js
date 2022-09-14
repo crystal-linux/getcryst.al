@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: ["class", ".ctp-mocha"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -16,6 +16,7 @@ module.exports = {
     require("@tailwindcss/typography"),
     require("@catppuccin/tailwindcss")({
       prefix: "ctp",
+      defaultFlavour: ""
     }),
   ],
 };
