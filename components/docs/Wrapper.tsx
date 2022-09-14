@@ -3,7 +3,9 @@ import { FC, ReactNode } from "react";
 const DocWrapper: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
-      <article className="prose dark:prose-invert max-w-full pl-80 px-8">{children}</article>
+      <article className="prose max-w-full px-8 pl-80 dark:prose-invert">
+        {children}
+      </article>
     </>
   );
 };

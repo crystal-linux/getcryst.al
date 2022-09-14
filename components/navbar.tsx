@@ -29,11 +29,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`py-2.5 transition-colors bg-base-light dark:bg-base-dark bg-opacity-50 dark:bg-opacity-50  ${
+      className={`py-2.5 transition-colors bg-base-light dark:bg-base-dark bg-opacity-80 dark:bg-opacity-80  ${
         scrollTop != 0 ? "backdrop-blur-md dark:backdrop-blur-md" : ""
       } fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600`}
     >
-      <div className="container flex flex-wrap justify-between items-center mx-auto max-w-7xl px-8">
+      <div className="container flex flex-wrap justify-between items-center mx-auto max-w-8xl px-8">
         <Link href="/">
           <a className="flex items-center gap-2">
             <Image src="/svg/crystal-logo.svg" width={35} height={35} alt="" />
