@@ -15,6 +15,7 @@ import { validPaths } from "../../lib/docs";
 import { load } from "js-yaml";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
+import rehypeHighlight from "rehype-highlight";
 
 export const getServerSideProps: GetStaticProps = async (context) => {
   const slug =
@@ -125,6 +126,7 @@ export const getServerSideProps: GetStaticProps = async (context) => {
               behavior: "wrap",
             },
           ],
+          rehypeHighlight
         ],
       },
     }
@@ -139,8 +141,8 @@ const DocPage: FC<{ source: MDXRemoteSerializeResult; tree: TreeItem }> = ({
 }) => {
   return (
     <>
-      <div className="pt-28 max-w-7xl mx-auto md:pt-24">
-        <aside className="flex fixed align-top right-auto w-80 px-8 flex-col break-normal">
+      <div className="mx-auto min-h-screen max-w-8xl pt-28 md:pt-24">
+        <aside className="fixed right-auto flex w-80 flex-col break-normal px-8 align-top">
           <TreeNode node={tree} path="/docs" />
         </aside>
 

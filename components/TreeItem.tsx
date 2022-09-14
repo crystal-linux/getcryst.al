@@ -14,9 +14,9 @@ const TreeNode: FC<{ node: TreeItem; path: string }> = ({
             <span
               className={`text-left ${
                 current
-                  ? "text-black dark:text-white font-semibold"
-                  : "text-gray-700 dark:text-gray-400"
-              }`}
+                  ? "font-semibold"
+                  : ""
+              } text-ctp-text`}
             >
               {pretty ? pretty : value}
             </span>
@@ -26,8 +26,8 @@ const TreeNode: FC<{ node: TreeItem; path: string }> = ({
                 <a
                   className={`${
                     current
-                      ? "font-semibold border-purple-700 dark:border-white text-purple-700 dark:text-white"
-                      : "font-normal text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-gray-100 hover:border-gray-500 hover:dark:border-gray-400 border-transparent"
+                      ? "font-semibold border-ctp-mauve text-ctp-mauve"
+                      : "font-normal text-ctp-subtext0 hover:text-ctp-subtext1 hover:border-ctp-surface2 border-transparent"
                   } first-letter transition-colors -ml-px hover:no-underline border-l pl-4`}
                 >
                   {pretty ? pretty : value}
@@ -42,7 +42,7 @@ const TreeNode: FC<{ node: TreeItem; path: string }> = ({
         <div
           className={`flex flex-col gap-1 ${
             value !== "root"
-              ? "border-l border-gray-300 dark:border-gray-700"
+              ? "border-l border-ctp-surface0"
               : ""
           }`}
         >
