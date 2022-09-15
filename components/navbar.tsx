@@ -29,9 +29,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`bg-ctp-base py-2.5 ${
-        scrollTop != 0 && !toggled ? "bg-opacity-80 backdrop-blur-md " : ""
-      } fixed top-0 left-0 z-20 w-full border-b border-ctp-mantle`}
+      className={`py-2.5 ${
+        scrollTop != 0 || toggled
+          ? "bg-opacity-80 backdrop-blur-md bg-ctp-base border-b border-ctp-mantle"
+          : ""
+      } fixed top-0 left-0 z-20 w-full `}
     >
       <div className="container mx-auto flex max-w-8xl flex-wrap items-center justify-between px-8">
         <Link href="/">
