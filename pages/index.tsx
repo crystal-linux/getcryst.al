@@ -1,98 +1,72 @@
-import {
-  faDiscord,
-  faGithub,
-  faMastodon,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { NextPage } from "next";
+import { useTheme } from "next-themes";
+import Link from "next/link";
 
 const Home: NextPage = () => {
+  const { resolvedTheme } = useTheme();
+
   return (
     <>
-      <h1>An Arch Based Distribution</h1>
-      <p>Crystal Linux is a brand new Arch Linux based distribution.</p>
-      <p>Powerful and easy to use.</p>
+      <section className="flex justify-center flex-col items-center text-center">
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-ctp-text md:text-5xl lg:text-6xl">
+          An arch based distribution
+        </h1>
+        <p className="mb-6 text-lg font-normal text-ctp-subtext1 lg:text-xl sm:px-16 xl:px-48">
+          Crystal Linux is a brand new Arch Linux based distritbution. Powerful
+          and easy to use.
+        </p>
 
-      <div className="flex gap-4 my-4 flex-wrap justify-center">
-        {[
-          {
-            link: "https://twitter.com/crystal_linux",
-            icon: faTwitter,
-          },
-          {
-            link: "https://github.com/crystal-linux",
-            icon: faGithub,
-          },
-          {
-            link: "https://discord.gg/2b47CAKNAx",
-            icon: faDiscord,
-          },
-          {
-            link: "https://fosstodon.org/@crystal_linux",
-            icon: faMastodon,
-          },
-        ].map((entry) => (
+        <div className="w-full space-2 space-y-2">
           <a
-            href={entry.link}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-purple-700"
-            key={entry.link}
-          >
-            <FontAwesomeIcon icon={entry.icon} size="3x" />
-          </a>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap align-middle my-4 justify-center [&_div]:max-w-sm [&_div]:flex [&_div]:flex-col [&_div]:items-center [&_div]:p-6 [&_div]:gap-4 [&_div]:bg-gray-300 [&_div]:dark:bg-gray-900">
-        <div>
-          <h2>Why Crystal?</h2>
-          <p>
-            What{"'"}s so different about Crystal compared to other distributions?
-          </p>
-          <ul className="list-disc list-inside text-left flex flex-col gap-4 text-xl">
-            <li>Easy to use package manager</li>
-            <li>Beginner Friendly</li>
-            <li>Easy Btrfs snapshots</li>
-            <li>Easy to install</li>
-          </ul>
-          <a
-            className="focus:outline-none text-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-bold w-full rounded-lg text-lg px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+            className="inline-flex w-full sm:w-fit justify-center items-center py-3 px-5 text-base font-medium text-center text-ctp-base bg-ctp-mauve rounded-lg focus:ring-4"
             href="https://github.com/crystal-linux/iso/releases/latest"
           >
             Download
           </a>
-        </div>
-        <div className="text-center">
-          <h2>We 💖 open source software</h2>
-          <p>
-            Basically everything that Crystal Linux has coded/made is completely
-            open source for everyone.
-          </p>
-          <p>
-            The project is licensed under{" "}
-            <a href="https://github.com/crystal-linux/.github/blob/main/LICENSE">
-              GPLv3.0
+
+          <Link href="/docs/crystal-linux/getting-started">
+            <a className="inline-flex w-full sm:w-fit justify-center items-center py-3 px-5 text-base font-medium text-center text-ctp-text rounded-lg focus:ring-4">
+              Getting Started
+              <FontAwesomeIcon icon={faArrowRight} />
             </a>
-            .
-          </p>
-          <p>
-            We also are fully transparent, and have adopted the{" "}
-            <a href="https://www.contributor-covenant.org/">
-              Contributor Covenant
-            </a>
-            .
-          </p>
-          <p>
-            If you would like to contribute to the project, please adhere to the{" "}
-            <a href="https://github.com/crystal-linux/.github/blob/main/CONTRIBUTING.md">
-              Contributing Guidelines
-            </a>{" "}
-            and the <a href="https://developercertificate.org/">The DCO</a>.
-          </p>
+          </Link>
         </div>
-      </div>
+      </section>
+
+      <section>
+        <p className="mt-8 font-semibold text-ctp-maroon">Beautiful</p>
+        <p className="mt-4 text-3xl sm:text-4xl text-ctp-text font-extrabold tracking-tight">
+          Onyx built-in
+        </p>
+        <p className="mt-4 max-w-3xl space-y-6 text-ctp-subtext1">
+          Crystal's in-house desktop experience, a custom GNOME session with a
+          familiar layout.
+        </p>
+      </section>
+
+      <section>
+        <p className="mt-8 font-semibold text-ctp-rosewater">Buttery</p>
+        <p className="mt-4 text-3xl sm:text-4xl text-ctp-text font-extrabold tracking-tight">
+          Automatic Backups
+        </p>
+        <p className="mt-4 max-w-3xl space-y-6 text-ctp-subtext1">
+          Backup & Restore your system. Easily boot into Btrfs snapshots.
+        </p>
+      </section>
+
+      <section>
+        <p className="mt-8 font-semibold text-ctp-mauve">Rusty Quartz?</p>
+        <p className="mt-4 text-3xl sm:text-4xl text-ctp-text font-extrabold tracking-tight">
+          Amethyst
+        </p>
+        <p className="mt-4 max-w-3xl space-y-6 text-ctp-subtext1">
+          Amethyst is a fast, efficient and lightweight AUR helper and Pacman
+          wrapper. Made for Crystal, compatible with any Arch-based Linux
+          distribution
+        </p>
+      </section>
     </>
   );
 };
