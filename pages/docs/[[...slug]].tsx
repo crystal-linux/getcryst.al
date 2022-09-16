@@ -1,6 +1,6 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { FC } from "react";
+import { ReactElement } from "react";
 import { join, resolve } from "path";
 import { GetStaticProps, Redirect } from "next";
 import { removeExt } from "../../lib/files";
@@ -16,6 +16,7 @@ import { load } from "js-yaml";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
+import { NextPageWithLayout } from "../_app";
 
 export const getServerSideProps: GetStaticProps = async (context) => {
   const slug =
@@ -126,7 +127,7 @@ export const getServerSideProps: GetStaticProps = async (context) => {
               behavior: "wrap",
             },
           ],
-          rehypeHighlight
+          rehypeHighlight,
         ],
       },
     }
@@ -135,12 +136,12 @@ export const getServerSideProps: GetStaticProps = async (context) => {
   return { props: { source: mdxSource, tree: tree.plain() } };
 };
 
-const DocPage: FC<{ source: MDXRemoteSerializeResult; tree: TreeItem }> = ({
-  source,
-  tree,
-}) => {
+const DocPage: NextPageWithLayout<{
+  source: MDXRemoteSerializeResult;
+  tree: TreeItem;
+}> = ({ source, tree }) => {
   return (
-    <>
+    <div className="max-w-8xl px-8 min-h-screen mx-auto pt-24 space-y-12 lg:pt-28">
       <aside className="lg:fixed mb-8 lg:mb-0 right-auto flex max-w-80 flex-col break-normal align-top">
         <TreeNode node={tree} path="/docs" />
       </aside>
@@ -149,7 +150,15 @@ const DocPage: FC<{ source: MDXRemoteSerializeResult; tree: TreeItem }> = ({
         {source.frontmatter?.title && <h1>{source.frontmatter.title}</h1>}
         <MDXRemote {...source} />
       </DocWrapper>
-    </>
+    </div>
+  );
+};
+
+DocPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <main className="bg-ctp-base">
+      {page}
+    </main>
   );
 };
 
