@@ -55,11 +55,12 @@ const Navbar = () => {
           </a>
 
           <a
-            className="mr-3 rounded-lg bg-ctp-mauve px-5 py-2.5 text-center text-sm font-medium text-ctp-base !no-underline focus:outline-none focus:ring-4 md:mr-0"
+            className="mr-3 rounded-lg bg-ctp-mauve hidden md:visible px-5 py-2.5 text-center text-sm font-medium text-ctp-base !no-underline focus:outline-none focus:ring-4 md:mr-0"
             href="https://github.com/crystal-linux/iso/releases/latest"
           >
             Download
           </a>
+
           <button
             type="button"
             className="inline-flex items-center rounded-lg p-2 text-sm text-ctp-subtext0 hover:bg-ctp-mantle focus:outline-none focus:ring-4 md:hidden"
@@ -125,6 +126,30 @@ const Navbar = () => {
                   Docs
                 </a>
               </Link>
+            </li>
+            <li className="visible md:hidden">
+              <a
+                className={`block rounded py-2 pr-4 pl-3 md:bg-transparent text-ctp-text md:hover:text-ctp-mauve md:p-0`}
+                href="https://github.com/crystal-linux/"
+              >
+                Github
+                <FontAwesomeIcon
+                  className="ml-2"
+                  icon={faArrowUpRightFromSquare}
+                />
+              </a>
+            </li>
+            <li className="visible md:hidden">
+              <a
+                className={`block rounded py-2 pr-4 pl-3 md:bg-transparent text-ctp-text md:hover:text-ctp-mauve md:p-0`}
+                href="https://github.com/crystal-linux/iso/releases/latest"
+              >
+                Download
+                <FontAwesomeIcon
+                  className="ml-2"
+                  icon={faArrowUpRightFromSquare}
+                />
+              </a>
             </li>
             <div
               className={`${
