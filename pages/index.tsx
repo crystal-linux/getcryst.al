@@ -29,14 +29,14 @@ const Home: NextPageWithLayout = () => {
 
           <div className="space-2 w-full space-y-2">
             <a
-              className="inline-flex w-full items-center justify-center rounded-lg bg-ctp-mauve py-3 px-5 text-center text-base font-medium text-ctp-base focus:ring-4 sm:w-fit"
+              className="inline-flex w-full items-center justify-center rounded-lg bg-ctp-mauve py-3 px-5 text-center text-base font-medium text-ctp-base no-underline focus:ring-4 sm:w-fit"
               href="https://github.com/crystal-linux/iso/releases/latest"
             >
               Download
             </a>
 
             <Link href="/docs/crystal-linux/getting-started">
-              <a className="inline-flex w-full items-center justify-center gap-2 rounded-lg py-3 px-5 text-center text-base font-medium text-ctp-text focus:ring-4 sm:w-fit">
+              <a className="inline-flex w-full items-center justify-center gap-2 rounded-lg py-3 px-5 text-center text-base font-medium text-ctp-text no-underline focus:ring-4 sm:w-fit">
                 Getting Started
                 <FontAwesomeIcon icon={faArrowRight} />
               </a>
