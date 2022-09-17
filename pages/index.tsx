@@ -45,15 +45,15 @@ const Home: NextPageWithLayout = () => {
         </div>
       </section>
 
-      <HomeSection>
+      <HomeSection className="">
         <div className="basis-1/4">
           <p className="mt-8 font-semibold text-ctp-maroon">Beautiful</p>
           <p className="mt-4 text-3xl sm:text-4xl text-ctp-text font-extrabold tracking-tight">
             Onyx built-in
           </p>
           <p className="mt-4 max-w-3xl text-ctp-subtext1">
-            Crystal{"'"}s in-house desktop experience, a custom GNOME session
-            with a familiar layout.
+            Install Crystal with it{"'"}s in-house desktop experience, a custom GNOME session
+            with a familiar layout. Or choose your favourite!
           </p>
         </div>
 
@@ -100,7 +100,7 @@ const Home: NextPageWithLayout = () => {
 };
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  return <main className="space-y-12 bg-ctp-base">{page}</main>;
+  return <main className="bg-ctp-base flex flex-col items-center">{page}</main>;
 };
 
 export default Home;
