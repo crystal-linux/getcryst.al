@@ -9,7 +9,7 @@ import { readdir } from "fs/promises";
 import remarkGfm from "remark-gfm";
 import TreeNode from "../../components/TreeItem";
 import fm from "front-matter";
-import DocWrapper from "../../components/docs/Wrapper";
+import DocWrapper from "../../components/DocWrapper";
 import { TreeItem, TreeItemConstructor } from "../../lib/tree";
 import { validPaths } from "../../lib/docs";
 import { load } from "js-yaml";

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
-const ThemeSwitcherIcon = () => {
+const IconThemeSwitcher = () => {
   const [toggled, setToggled] = useState(false);
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -107,4 +107,4 @@ const ThemeSwitcherIcon = () => {
   );
 };
 
-export default ThemeSwitcherIcon;
+export default IconThemeSwitcher;
