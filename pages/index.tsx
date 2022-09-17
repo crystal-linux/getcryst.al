@@ -9,8 +9,7 @@ import { ReactElement } from "react";
 
 import onyxDark from "../public/demos/onyx-dark.png";
 import onyxLight from "../public/demos/onyx-light.png";
-import ameDark from "../public/demos/ame-dark.png";
-import ameLight from "../public/demos/ame-light.png";
+import AmePreview from "../components/AmePreview";
 
 const Home: NextPageWithLayout = () => {
   const { resolvedTheme } = useTheme();
@@ -91,12 +90,7 @@ const Home: NextPageWithLayout = () => {
         </div>
 
         <div className="basis-3/4 flex justify-center">
-          <Image
-            src={resolvedTheme === "dark" ? ameDark : ameLight}
-            className="rounded-xl"
-            layout="intrinsic"
-            alt="demo of the onyx desktop environment"
-          />
+          <AmePreview />
         </div>
       </section>
     </>
