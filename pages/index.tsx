@@ -2,7 +2,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/future/image";
 
 import { NextPageWithLayout } from "./_app";
 import { ReactElement } from "react";
@@ -60,8 +60,7 @@ const Home: NextPageWithLayout = () => {
         <div className="basis-3/4 flex justify-center">
           <Image
             src={resolvedTheme === "dark" ? onyxDark : onyxLight}
-            className="rounded-xl"
-            layout="intrinsic"
+            className="rounded-xl shadow-lg shadow-ctp-crust"
             alt="demo of the onyx desktop environment"
           />
         </div>
