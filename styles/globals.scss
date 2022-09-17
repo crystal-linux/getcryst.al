@@ -21,7 +21,7 @@
     @apply text-4xl font-bold;
   }
   a {
-    @apply hover:underline font-semibold hover:cursor-pointer;
+    @apply underline hover:cursor-pointer;
   }
 }
 
