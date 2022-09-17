@@ -78,7 +78,7 @@ const Home: NextPageWithLayout = () => {
         </div>
       </HomeSection>
 
-      <HomeSection>
+      <HomeSection className="pb-28">
         <div className="basis-1/4">
           <p className="mt-8 font-semibold text-ctp-mauve">Rusty Quartz?</p>
           <p className="mt-4 text-3xl sm:text-4xl text-ctp-text font-extrabold tracking-tight">
