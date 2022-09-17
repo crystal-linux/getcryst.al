@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import ThemeSwitcherIcon from "./ThemeSwitcher/Icon";
-import ThemeSwitcherNative from "./ThemeSwitcher/Native";
+import IconThemeSwitcher from "./ThemeSwitcher/IconThemeSwitcher";
+import NativeThemeSwitcher from "./ThemeSwitcher/NativeThemeSwitcher";
 
 const Navbar = () => {
   const [scrollTop, setScrollTop] = useState(0);
@@ -45,7 +45,7 @@ const Navbar = () => {
           </a>
         </Link>
         <div className="flex md:order-2">
-          <ThemeSwitcherIcon />
+          <IconThemeSwitcher />
           <a
             type="button"
             className="mr-2 hidden items-center rounded-lg p-2.5 text-center text-sm font-medium text-ctp-subtext0 focus:outline-none focus:ring-4 md:inline-flex"
@@ -157,7 +157,7 @@ const Navbar = () => {
               } mt-2 flex items-center justify-between border-t border-ctp-mantle px-2 pt-4 md:hidden`}
             >
               <p className="text-ctp-text">Switch Theme</p>{" "}
-              <ThemeSwitcherNative />
+              <NativeThemeSwitcher />
             </div>
           </ul>
         </div>

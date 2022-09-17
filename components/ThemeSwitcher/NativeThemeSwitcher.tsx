@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const ThemeSwitcherNative = () => {
+const NativeThemeSwitcher = () => {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -35,4 +35,4 @@ const ThemeSwitcherNative = () => {
   );
 };
 
-export default ThemeSwitcherNative;
+export default NativeThemeSwitcher;
