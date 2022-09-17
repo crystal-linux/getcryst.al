@@ -16,7 +16,17 @@ const nextConfig = {
     return config;
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  experimental: { images: { allowFutureImage: true } }
+  experimental: { images: { allowFutureImage: true } },
+  async redirects() {
+    return [
+      {
+        source: '/discord',
+        destination: 'https://discord.com/invite/76RR4VC45V',
+        permanent: true,
+      },
+    ]
+  },
+
 };
 
 const withMDX = createMDX({
