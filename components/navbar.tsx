@@ -55,7 +55,7 @@ const Navbar = () => {
           </a>
 
           <a
-            className="mr-3 rounded-lg bg-ctp-mauve hidden md:visible px-5 py-2.5 text-center text-sm font-medium text-ctp-base !no-underline focus:outline-none focus:ring-4 md:mr-0"
+            className="mr-3 rounded-lg bg-ctp-mauve hidden md:block px-5 py-2.5 text-center text-sm font-medium text-ctp-base !no-underline focus:outline-none focus:ring-4 md:mr-0"
             href="https://github.com/crystal-linux/iso/releases/latest"
           >
             Download
