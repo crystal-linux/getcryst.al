@@ -10,6 +10,7 @@ import { ReactElement } from "react";
 import onyxDark from "../public/demos/onyx-dark.png";
 import onyxLight from "../public/demos/onyx-light.png";
 import AmePreview from "../components/AmePreview";
+import HomeSection from "../components/HomeSection";
 
 const Home: NextPageWithLayout = () => {
   const { resolvedTheme } = useTheme();
@@ -44,7 +45,7 @@ const Home: NextPageWithLayout = () => {
         </div>
       </section>
 
-      <section className="flex flex-col lg:flex-row gap-8 max-w-8xl mx-auto px-8">
+      <HomeSection>
         <div className="basis-1/4">
           <p className="mt-8 font-semibold text-ctp-maroon">Beautiful</p>
           <p className="mt-4 text-3xl sm:text-4xl text-ctp-text font-extrabold tracking-tight">
@@ -64,19 +65,21 @@ const Home: NextPageWithLayout = () => {
             alt="demo of the onyx desktop environment"
           />
         </div>
-      </section>
+      </HomeSection>
 
-      <section className="max-w-8xl mx-auto px-8">
-        <p className="mt-8 font-semibold text-ctp-rosewater">Buttery</p>
-        <p className="mt-4 text-3xl sm:text-4xl text-ctp-text font-extrabold tracking-tight">
-          Automatic Backups
-        </p>
-        <p className="mt-4 max-w-3xl space-y-6 text-ctp-subtext1">
-          Backup & Restore your system. Easily boot into Btrfs snapshots.
-        </p>
-      </section>
+      <HomeSection>
+        <div>
+          <p className="mt-8 font-semibold text-ctp-rosewater">Buttery</p>
+          <p className="mt-4 text-3xl sm:text-4xl text-ctp-text font-extrabold tracking-tight">
+            Automatic Backups
+          </p>
+          <p className="mt-4 max-w-3xl space-y-6 text-ctp-subtext1">
+            Backup & Restore your system. Easily boot into Btrfs snapshots.
+          </p>
+        </div>
+      </HomeSection>
 
-      <section className="flex flex-col lg:flex-row justify-between gap-8 max-w-8xl mx-auto px-8">
+      <HomeSection>
         <div className="basis-1/4">
           <p className="mt-8 font-semibold text-ctp-mauve">Rusty Quartz?</p>
           <p className="mt-4 text-3xl sm:text-4xl text-ctp-text font-extrabold tracking-tight">
@@ -92,7 +95,7 @@ const Home: NextPageWithLayout = () => {
         <div className="basis-3/4 flex justify-center">
           <AmePreview />
         </div>
-      </section>
+      </HomeSection>
     </>
   );
 };
