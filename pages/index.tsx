@@ -27,7 +27,7 @@ const Home: NextPageWithLayout = () => {
             Powerful and easy to use.
           </p>
 
-          <div className="space-2 w-full space-y-2">
+          <div className="w-full flex gap-2 justify-center flex-wrap">
             <a
               className="inline-flex w-full items-center justify-center rounded-lg bg-ctp-mauve py-3 px-5 text-center text-base font-medium text-ctp-base no-underline focus:ring-4 sm:w-fit"
               href="https://github.com/crystal-linux/iso/releases/latest"
