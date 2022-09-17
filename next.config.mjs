@@ -16,6 +16,7 @@ const nextConfig = {
     return config;
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  experimental: { images: { allowFutureImage: true } }
 };
 
 const withMDX = createMDX({
