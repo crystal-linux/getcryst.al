@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav
       className={`py-2.5 ${
         scrollTop != 0 || toggled
-          ? "bg-opacity-80 backdrop-blur-md bg-ctp-base border-b border-ctp-mantle"
+          ? "border-b border-ctp-mantle bg-ctp-base bg-opacity-80 backdrop-blur-md"
           : ""
       } fixed top-0 left-0 z-20 w-full `}
     >
@@ -55,7 +55,7 @@ const Navbar = () => {
           </a>
 
           <a
-            className="mr-3 rounded-lg bg-ctp-mauve hidden md:block px-5 py-2.5 text-center text-sm font-medium text-ctp-base !no-underline focus:outline-none focus:ring-4 md:mr-0"
+            className="mr-3 hidden rounded-lg bg-ctp-mauve px-5 py-2.5 text-center text-sm font-medium text-ctp-base !no-underline focus:outline-none focus:ring-4 md:mr-0 md:block"
             href="https://github.com/crystal-linux/iso/releases/latest"
           >
             Download
@@ -96,7 +96,7 @@ const Navbar = () => {
                     route === "/"
                       ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
                       : "text-ctp-text md:hover:text-ctp-mauve"
-                  } md:p-0 no-underline`}
+                  } no-underline md:p-0`}
                 >
                   Home
                 </a>
@@ -105,7 +105,7 @@ const Navbar = () => {
             <li>
               <a
                 href="https://forum.getcryst.al/"
-                className="md:dark:hover:bg-transparen block rounded py-2 pr-4 pl-3 text-ctp-text md:p-0 md:hover:bg-transparent md:hover:text-ctp-mauve no-underline"
+                className="md:dark:hover:bg-transparen block rounded py-2 pr-4 pl-3 text-ctp-text no-underline md:p-0 md:hover:bg-transparent md:hover:text-ctp-mauve"
               >
                 Forum
                 <FontAwesomeIcon
@@ -121,7 +121,7 @@ const Navbar = () => {
                     route.split("/")[1] === "docs"
                       ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
                       : "text-ctp-text md:hover:text-ctp-mauve"
-                  } md:p-0 no-underline`}
+                  } no-underline md:p-0`}
                 >
                   Docs
                 </a>
@@ -129,7 +129,7 @@ const Navbar = () => {
             </li>
             <li className="visible md:hidden">
               <a
-                className={`block rounded py-2 pr-4 pl-3 md:bg-transparent text-ctp-text md:hover:text-ctp-mauve md:p-0 no-underline`}
+                className={`block rounded py-2 pr-4 pl-3 text-ctp-text no-underline md:bg-transparent md:p-0 md:hover:text-ctp-mauve`}
                 href="https://github.com/crystal-linux/"
               >
                 Github
@@ -141,7 +141,7 @@ const Navbar = () => {
             </li>
             <li className="visible md:hidden">
               <a
-                className={`block rounded py-2 pr-4 pl-3 md:bg-transparent text-ctp-text md:hover:text-ctp-mauve md:p-0 no-underline`}
+                className={`block rounded py-2 pr-4 pl-3 text-ctp-text no-underline md:bg-transparent md:p-0 md:hover:text-ctp-mauve`}
                 href="https://github.com/crystal-linux/iso/releases/latest"
               >
                 Download

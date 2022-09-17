@@ -43,6 +43,6 @@ export class TreeItemConstructor {
     this.children.forEach((child) => child.sort());
     this.children.sort((a, b) => b.weight - a.weight);
 
-    return this
+    return this;
   }
 }

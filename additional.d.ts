@@ -1,4 +1,4 @@
 type FrontMatter = {
-  title?: string
-  weight?: number
-}
+  title?: string;
+  weight?: number;
+};
