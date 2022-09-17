@@ -54,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.23.0"],\
             ["eslint-config-next", "virtual:f08287697b7d2fc46a42096e551a2e11a899df532e6925b4b20b7308fc0998fe39de46d9a4afbfc1eb7c4f6a22b5e65efb2ab217c04a67bf2731436b2b2df986#npm:12.2.5"],\
             ["front-matter", "npm:4.0.2"],\
+            ["husky", "npm:8.0.1"],\
             ["js-yaml", "npm:4.1.0"],\
             ["next", "virtual:f08287697b7d2fc46a42096e551a2e11a899df532e6925b4b20b7308fc0998fe39de46d9a4afbfc1eb7c4f6a22b5e65efb2ab217c04a67bf2731436b2b2df986#npm:12.2.5"],\
             ["next-mdx-remote", "virtual:f08287697b7d2fc46a42096e551a2e11a899df532e6925b4b20b7308fc0998fe39de46d9a4afbfc1eb7c4f6a22b5e65efb2ab217c04a67bf2731436b2b2df986#npm:4.1.0"],\
@@ -5774,6 +5775,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.23.0"],\
             ["eslint-config-next", "virtual:f08287697b7d2fc46a42096e551a2e11a899df532e6925b4b20b7308fc0998fe39de46d9a4afbfc1eb7c4f6a22b5e65efb2ab217c04a67bf2731436b2b2df986#npm:12.2.5"],\
             ["front-matter", "npm:4.0.2"],\
+            ["husky", "npm:8.0.1"],\
             ["js-yaml", "npm:4.1.0"],\
             ["next", "virtual:f08287697b7d2fc46a42096e551a2e11a899df532e6925b4b20b7308fc0998fe39de46d9a4afbfc1eb7c4f6a22b5e65efb2ab217c04a67bf2731436b2b2df986#npm:12.2.5"],\
             ["next-mdx-remote", "virtual:f08287697b7d2fc46a42096e551a2e11a899df532e6925b4b20b7308fc0998fe39de46d9a4afbfc1eb7c4f6a22b5e65efb2ab217c04a67bf2731436b2b2df986#npm:4.1.0"],\
@@ -6127,6 +6129,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["humanize-ms", "npm:1.2.1"],\
             ["ms", "npm:2.1.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["husky", [\
+        ["npm:8.0.1", {\
+          "packageLocation": "./.yarn/cache/husky-npm-8.0.1-85fede8470-943a73a13d.zip/node_modules/husky/",\
+          "packageDependencies": [\
+            ["husky", "npm:8.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
