@@ -37,7 +37,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex max-w-8xl flex-wrap items-center justify-between px-8">
         <Link href="/">
-          <a className="flex items-center gap-2">
+          <a className="flex items-center gap-2 no-underline">
             <Image src="/svg/crystal-logo.svg" width={35} height={35} alt="" />
             <span className="self-center whitespace-nowrap text-xl font-semibold text-ctp-text">
               Crystal Linux
@@ -96,7 +96,7 @@ const Navbar = () => {
                     route === "/"
                       ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
                       : "text-ctp-text md:hover:text-ctp-mauve"
-                  } md:p-0`}
+                  } md:p-0 no-underline`}
                 >
                   Home
                 </a>
@@ -105,7 +105,7 @@ const Navbar = () => {
             <li>
               <a
                 href="https://forum.getcryst.al/"
-                className="md:dark:hover:bg-transparen block rounded py-2 pr-4 pl-3 text-ctp-text md:p-0 md:hover:bg-transparent md:hover:text-ctp-mauve"
+                className="md:dark:hover:bg-transparen block rounded py-2 pr-4 pl-3 text-ctp-text md:p-0 md:hover:bg-transparent md:hover:text-ctp-mauve no-underline"
               >
                 Forum
                 <FontAwesomeIcon
@@ -121,7 +121,7 @@ const Navbar = () => {
                     route.split("/")[1] === "docs"
                       ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
                       : "text-ctp-text md:hover:text-ctp-mauve"
-                  } md:p-0`}
+                  } md:p-0 no-underline`}
                 >
                   Docs
                 </a>
@@ -129,7 +129,7 @@ const Navbar = () => {
             </li>
             <li className="visible md:hidden">
               <a
-                className={`block rounded py-2 pr-4 pl-3 md:bg-transparent text-ctp-text md:hover:text-ctp-mauve md:p-0`}
+                className={`block rounded py-2 pr-4 pl-3 md:bg-transparent text-ctp-text md:hover:text-ctp-mauve md:p-0 no-underline`}
                 href="https://github.com/crystal-linux/"
               >
                 Github
@@ -141,7 +141,7 @@ const Navbar = () => {
             </li>
             <li className="visible md:hidden">
               <a
-                className={`block rounded py-2 pr-4 pl-3 md:bg-transparent text-ctp-text md:hover:text-ctp-mauve md:p-0`}
+                className={`block rounded py-2 pr-4 pl-3 md:bg-transparent text-ctp-text md:hover:text-ctp-mauve md:p-0 no-underline`}
                 href="https://github.com/crystal-linux/iso/releases/latest"
               >
                 Download

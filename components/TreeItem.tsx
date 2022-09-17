@@ -28,7 +28,7 @@ const TreeNode: FC<{ node: TreeItem; path: string }> = ({
                     current
                       ? "font-semibold border-ctp-mauve text-ctp-mauve"
                       : "font-normal text-ctp-subtext0 hover:text-ctp-subtext1 hover:border-ctp-surface2 border-transparent"
-                  } first-letter transition-colors -ml-px hover:no-underline border-l pl-4`}
+                  } first-letter transition-colors no-underline -ml-px hover:no-underline border-l pl-4`}
                 >
                   {pretty ? pretty : value}
                 </a>
