@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -13,24 +13,24 @@ module.exports = {
         "8xl": "90rem",
       },
       animation: {
-        blink: 'blink 1.5s steps(2) infinite;'
+        blink: "blink 1.5s steps(2) infinite;",
       },
       keyframes: {
         blink: {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 100 }
-        }
+          "0%": { opacity: 0 },
+          "100%": { opacity: 100 },
+        },
       },
       fontFamily: {
-        'fira-code': ['Fira Code', ...defaultTheme.fontFamily.mono]
-      }
+        "fira-code": ["Fira Code", ...defaultTheme.fontFamily.mono],
+      },
     },
   },
   plugins: [
     require("@tailwindcss/typography"),
     require("@catppuccin/tailwindcss")({
       prefix: "ctp",
-      defaultFlavour: ""
+      defaultFlavour: "",
     }),
   ],
 };

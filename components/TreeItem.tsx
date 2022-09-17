@@ -13,9 +13,7 @@ const TreeNode: FC<{ node: TreeItem; path: string }> = ({
           {children.length > 0 ? (
             <span
               className={`text-left ${
-                current
-                  ? "font-semibold"
-                  : ""
+                current ? "font-semibold" : ""
               } text-ctp-text`}
             >
               {pretty ? pretty : value}
@@ -26,9 +24,9 @@ const TreeNode: FC<{ node: TreeItem; path: string }> = ({
                 <a
                   className={`${
                     current
-                      ? "font-semibold border-ctp-mauve text-ctp-mauve"
-                      : "font-normal text-ctp-subtext0 hover:text-ctp-subtext1 hover:border-ctp-surface2 border-transparent"
-                  } first-letter transition-colors no-underline -ml-px hover:no-underline border-l pl-4`}
+                      ? "border-ctp-mauve font-semibold text-ctp-mauve"
+                      : "border-transparent font-normal text-ctp-subtext0 hover:border-ctp-surface2 hover:text-ctp-subtext1"
+                  } first-letter -ml-px border-l pl-4 no-underline transition-colors hover:no-underline`}
                 >
                   {pretty ? pretty : value}
                 </a>
@@ -41,9 +39,7 @@ const TreeNode: FC<{ node: TreeItem; path: string }> = ({
       {children.length > 0 && (
         <div
           className={`flex flex-col gap-1 ${
-            value !== "root"
-              ? "border-l border-ctp-surface0"
-              : ""
+            value !== "root" ? "border-l border-ctp-surface0" : ""
           }`}
         >
           {children.map((child) => (

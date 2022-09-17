@@ -4,12 +4,8 @@ const HomeSection: FC<{ children: ReactNode; className?: string }> = ({
   children,
   className,
 }) => (
-  <section
-    className={`py-6 w-full ${
-      className ? className : ""
-    }`}
-  >
-    <div className="flex flex-col px-8 lg:flex-row gap-8 mx-auto max-w-8xl">
+  <section className={`w-full py-6 ${className ? className : ""}`}>
+    <div className="mx-auto flex max-w-8xl flex-col gap-8 px-8 lg:flex-row">
       {children}
     </div>
   </section>

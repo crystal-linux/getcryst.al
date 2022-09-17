@@ -1,12 +1,12 @@
 const AmePreview = () => (
-  <div className="bg-ctp-mantle h-fit w-full md:w-auto rounded-lg [&_p]:text-xs [&_p]:md:text-base md:text-base p-5 font-bold shadow-ctp-crust whitespace-nowrap overflow-hidden shadow-lg font-fira-code select-none border-ctp-crust border">
-    <p className="text-ctp-blue font-normal">{"~"}</p>
+  <div className="h-fit w-full select-none overflow-hidden whitespace-nowrap rounded-lg border border-ctp-crust bg-ctp-mantle p-5 font-fira-code font-bold shadow-lg shadow-ctp-crust md:w-auto md:text-base [&_p]:text-xs [&_p]:md:text-base">
+    <p className="font-normal text-ctp-blue">{"~"}</p>
     <p className="font-normal">
       <span className="text-ctp-blue">{">"}</span>
       <span className="text-ctp-green">{" ame"}</span>
       {" install neovim-git"}
     </p>
-    <p className="text-ctp-green font-normal">All packages found</p>
+    <p className="font-normal text-ctp-green">All packages found</p>
     <p className="text-ctp-green">neovim-git</p>
     <p>
       Do you want to install these packages and package dependencies?
@@ -61,7 +61,7 @@ const AmePreview = () => (
     <p>
       Net Upgrade Size:<span className="font-bold">{"       0.19 MiB"}</span>
     </p>
-    <p className="mt-4 after:content-[''] after:w-[10px] after:h-[20px] after:bg-ctp-rosewater after:inline-block after:animate-blink flex items-center gap-2">
+    <p className="mt-4 flex items-center gap-2 after:inline-block after:h-[20px] after:w-[10px] after:animate-blink after:bg-ctp-rosewater after:content-['']">
       <span className="text-ctp-blue">{":: "}</span>Proceed with installation?
       [Y/n]
     </p>

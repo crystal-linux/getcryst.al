@@ -141,8 +141,8 @@ const DocPage: NextPageWithLayout<{
   tree: TreeItem;
 }> = ({ source, tree }) => {
   return (
-    <div className="max-w-8xl px-8 min-h-screen mx-auto pt-24 space-y-12 lg:pt-28">
-      <aside className="lg:fixed mb-8 lg:mb-0 right-auto flex max-w-80 flex-col break-normal align-top">
+    <div className="mx-auto min-h-screen max-w-8xl space-y-12 px-8 pt-24 lg:pt-28">
+      <aside className="max-w-80 right-auto mb-8 flex flex-col break-normal align-top lg:fixed lg:mb-0">
         <TreeNode node={tree} path="/docs" />
       </aside>
 
@@ -155,11 +155,7 @@ const DocPage: NextPageWithLayout<{
 };
 
 DocPage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <main className="bg-ctp-base">
-      {page}
-    </main>
-  );
+  return <main className="bg-ctp-base">{page}</main>;
 };
 
 export default DocPage;

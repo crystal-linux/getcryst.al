@@ -11,22 +11,21 @@ const nextConfig = {
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
-    config.experiments.topLevelAwait = true
+    config.experiments.topLevelAwait = true;
 
     return config;
   },
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   experimental: { images: { allowFutureImage: true } },
   async redirects() {
     return [
       {
-        source: '/discord',
-        destination: 'https://discord.com/invite/76RR4VC45V',
+        source: "/discord",
+        destination: "https://discord.com/invite/76RR4VC45V",
         permanent: true,
       },
-    ]
+    ];
   },
-
 };
 
 const withMDX = createMDX({

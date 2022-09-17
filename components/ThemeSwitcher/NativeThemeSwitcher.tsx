@@ -17,7 +17,7 @@ const NativeThemeSwitcher = () => {
   }
 
   return (
-    <div className="relative flex gap-2 capitalize items-center rounded-lg shadow-sm p-2 px-4 text-ctp-text font-semibold bg-ctp-surface0">
+    <div className="relative flex items-center gap-2 rounded-lg bg-ctp-surface0 p-2 px-4 font-semibold capitalize text-ctp-text shadow-sm">
       <FontAwesomeIcon icon={resolvedTheme === "light" ? faSun : faMoon} />
       {theme}
       <FontAwesomeIcon icon={faAngleDown} size="sm" />
@@ -25,7 +25,7 @@ const NativeThemeSwitcher = () => {
         onClick={(e) => {
           setTheme(e.currentTarget.value);
         }}
-        className="absolute appearance-none inset-0 w-full h-full opacity-0"
+        className="absolute inset-0 h-full w-full appearance-none opacity-0"
       >
         <option value="light">Light</option>
         <option value="dark">Dark</option>
