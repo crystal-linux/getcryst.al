@@ -18,7 +18,7 @@ const Home: NextPageWithLayout = () => {
   return (
     <>
       <section>
-        <div className="flex flex-col items-center justify-center px-8 pt-36 pb-32 text-center lg:pt-44">
+        <div className="flex flex-col items-center justify-center px-4 pt-36 text-center md:px-8 md:pb-32 lg:pt-44">
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-ctp-text md:text-5xl lg:text-6xl">
             An arch based distribution
           </h1>

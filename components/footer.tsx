@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const Footer = () => (
   <footer className="bg-ctp-base text-ctp-text">
-    <div className="mx-auto flex max-w-8xl flex-col gap-8 px-8 py-6 md:flex-row">
+    <div className="mx-auto flex max-w-8xl flex-col gap-8 px-4 py-6 md:flex-row md:px-8">
       <section className="basis-1/3">
         <h4 className="text-2xl font-bold">About</h4>
         <p>

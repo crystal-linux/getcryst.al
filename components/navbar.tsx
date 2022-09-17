@@ -35,7 +35,7 @@ const Navbar = () => {
           : ""
       } fixed top-0 left-0 z-20 w-full `}
     >
-      <div className="container mx-auto flex max-w-8xl flex-wrap items-center justify-between px-8">
+      <div className="container mx-auto flex max-w-8xl flex-wrap items-center justify-between px-4 md:px-8">
         <Link href="/">
           <a className="flex items-center gap-2 no-underline">
             <Image src="/svg/crystal-logo.svg" width={35} height={35} alt="" />
