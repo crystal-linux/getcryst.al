@@ -46,3 +46,19 @@ export class TreeItemConstructor {
     return this;
   }
 }
+
+export const findCurrentDir = (node: TreeItem): TreeItem | null => {
+  if (!node.current) {
+    return null;
+  }
+
+  const further = node.children.find(
+    (child) => child.current && child.children.length !== 0
+  );
+
+  if (further) {
+    return further;
+  }
+
+  return findCurrentDir(node);
+};
