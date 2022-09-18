@@ -23,8 +23,8 @@ const Home: NextPageWithLayout = () => {
             An arch based distribution
           </h1>
           <p className="mb-6 text-lg font-normal text-ctp-subtext1 sm:px-16 lg:text-xl xl:px-48">
-            Crystal Linux is a brand new Arch Linux based distritbution.
-            Powerful and easy to use.
+            Crystal Linux is a brand new Arch Linux based distribution.
+            Friendly, powerful and easy to use.
           </p>
 
           <div className="w-full flex gap-2 justify-center flex-wrap">

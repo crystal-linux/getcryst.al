@@ -4,7 +4,7 @@ export default {
   title: "Official Site",
   defaultTitle: "Crystal Linux",
   description:
-    "Crystal Linux is a brand new Arch Linux based distribution. Completely beginner friendly, easy to use, and powerful.",
+    "Crystal Linux is a brand new Arch Linux based distribution. Friendly, powerful and easy to use.",
   twitter: {
     cardType: "summary",
     handle: "Crystal_Linux",
