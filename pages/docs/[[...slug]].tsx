@@ -81,13 +81,13 @@ export const getServerSideProps: GetStaticProps = async (context) => {
         const contents = (await readFile(resolve(dir, dirent.name))).toString();
 
         const {
-          attributes: { title, weight },
+          attributes: { shortTitle, title, weight },
         } = fm<FrontMatter>(contents);
         node.addChild(
           new TreeItemConstructor(
             removeExt(dirent.name),
             current,
-            title ? title : null,
+            title ? shortTitle || title : null,
             weight ? weight : 0
           )
         );
