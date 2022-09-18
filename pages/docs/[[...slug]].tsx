@@ -141,8 +141,8 @@ const DocPage: NextPageWithLayout<{
   tree: TreeItem;
 }> = ({ source, tree }) => {
   return (
-    <div className="mx-auto min-h-screen max-w-8xl space-y-12 px-4 pb-16 pt-24 md:px-8 md:pb-28 lg:pt-28">
-      <aside className="max-w-80 right-auto mb-8 flex flex-col break-normal align-top lg:fixed lg:mb-0">
+    <div className="mx-auto min-h-screen max-w-8xl space-y-12 px-4 pb-16 pt-24 md:px-8 md:pb-28 lg:pt-28 space-x-4">
+      <aside className="w-80 right-auto mb-8 flex flex-col break-normal align-top lg:fixed lg:mb-0">
         <TreeNode node={tree} path="/docs" />
       </aside>
 
