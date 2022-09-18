@@ -14,8 +14,8 @@ const Footer = () => (
       <section className="basis-1/3">
         <h4 className="text-2xl font-bold">About</h4>
         <p>
-          Crystal Linux is a brand new Arch Linux based distribution. Completely
-          beginner friendly, easy to use, and powerful.
+          Crystal Linux is a brand new Arch Linux based distribution. Friendly,
+          easy to use, and powerful.
         </p>
       </section>
       <section className="basis-1/3">
