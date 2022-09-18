@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav
       className={`py-2.5 ${
         scrollTop != 0 || toggled
-          ? "border-b border-ctp-mantle bg-opacity-80 backdrop-blur-md"
+          ? "border-b border-ctp-mantle bg-ctp-base bg-opacity-80 backdrop-blur-md"
           : ""
       } fixed top-0 left-0 z-20 w-full `}
     >
