@@ -43,7 +43,7 @@ const Document = () => (
       <link rel="icon" href="/favicons/favicon.ico" />
     </Head>
 
-    <body>
+    <body className="bg-ctp-base">
       <Main />
       <NextScript />
     </body>

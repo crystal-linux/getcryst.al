@@ -155,7 +155,7 @@ const DocPage: NextPageWithLayout<{
 };
 
 DocPage.getLayout = function getLayout(page: ReactElement) {
-  return <main className="bg-ctp-base">{page}</main>;
+  return <main>{page}</main>;
 };
 
 export default DocPage;
