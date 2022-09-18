@@ -89,6 +89,13 @@ const Home: NextPageWithLayout = () => {
             wrapper. Made for Crystal, compatible with any Arch-based Linux
             distribution
           </p>
+
+          <Link href="/docs/amethyst/getting-started">
+            <a className="inline-flex mt-4 w-full items-center border border-ctp-mantle bg-ctp-surface0 justify-center gap-2 rounded-full py-2 px-4 text-center text-base font-medium text-ctp-text no-underline focus:ring-4 sm:w-fit">
+              Learn more
+              <FontAwesomeIcon icon={faArrowRight} />
+            </a>
+          </Link>
         </div>
 
         <div className="flex basis-3/4 justify-center">
