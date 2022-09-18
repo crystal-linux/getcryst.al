@@ -2,39 +2,55 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { ReactElement } from "react";
 import { join, resolve } from "path";
-import { GetStaticProps, Redirect } from "next";
-import { removeExt } from "../../lib/files";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { removeExt, walkFiles } from "../../lib/files";
 import { readFile, stat } from "fs/promises";
 import { readdir } from "fs/promises";
 import remarkGfm from "remark-gfm";
 import TreeNode from "../../components/TreeItem";
 import fm from "front-matter";
 import DocWrapper from "../../components/DocWrapper";
-import { TreeItem, TreeItemConstructor } from "../../lib/tree";
-import { validPaths } from "../../lib/docs";
+import { findCurrentDir, TreeItem, TreeItemConstructor } from "../../lib/tree";
 import { load } from "js-yaml";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
 import { NextPageWithLayout } from "../_app";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
-export const getServerSideProps: GetStaticProps = async (context) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths: {
+    params: {
+      slug: string[];
+    };
+  }[] = [];
+
+  for await (const file of walkFiles("_docs/")) {
+    const path = file.slice(resolve(process.cwd(), "_docs/").length);
+
+    paths.push({
+      params: {
+        slug: removeExt(path).split("/").slice(1),
+      },
+    });
+  }
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
   const slug =
     context.params!.slug === undefined
       ? []
       : (context.params!.slug as string[]);
 
-  if (
-    !validPaths.find((path) => JSON.stringify(path) === JSON.stringify(slug))
-  ) {
-    return {
-      notFound: true,
-    };
-  }
-
   let path = ["_docs", ...slug].join("/") + ".mdx";
 
-  let redirect: Redirect | null = null;
+  let isDir: boolean = false;
 
   const walk = async (node: TreeItemConstructor, dir: string, i = 0) => {
     const dirents = await readdir(resolve(process.cwd(), dir), {
@@ -68,14 +84,7 @@ export const getServerSideProps: GetStaticProps = async (context) => {
         } catch (_) {}
 
         if (current && i + 1 == slug.length && node.children.length > 0) {
-          redirect = {
-            permanent: false,
-            destination: `/docs/${slug.join("/")}/${
-              node.children[
-                node.children.findIndex((a) => a.value === slug[i])
-              ].children.shift()!.value
-            }`,
-          };
+          isDir = true;
         }
       } else {
         const contents = (await readFile(resolve(dir, dirent.name))).toString();
@@ -100,17 +109,9 @@ export const getServerSideProps: GetStaticProps = async (context) => {
     await walk(new TreeItemConstructor("root", true), "_docs/")
   ).sort();
 
-  if (slug.length === 0) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: `/docs/${slug.join("/")}/${tree.children.shift()!.value}`,
-      },
-    };
-  }
-
-  if (redirect) {
-    return { redirect };
+  if (isDir || slug.length === 0) {
+    const plain = tree.plain();
+    return { props: { source: null, tree: plain, dir: findCurrentDir(plain) } };
   }
 
   const mdxSource = await serialize(
@@ -137,18 +138,40 @@ export const getServerSideProps: GetStaticProps = async (context) => {
 };
 
 const DocPage: NextPageWithLayout<{
-  source: MDXRemoteSerializeResult;
+  source: MDXRemoteSerializeResult | null;
   tree: TreeItem;
-}> = ({ source, tree }) => {
+  dir: TreeItem | null;
+}> = ({ source, tree, dir }) => {
+  const {
+    query: { slug },
+  } = useRouter();
+
   return (
-    <div className="mx-auto min-h-screen max-w-8xl space-y-12 px-4 pb-16 pt-24 md:px-8 md:pb-28 lg:pt-28 space-x-4">
-      <aside className="w-80 right-auto mb-8 flex flex-col break-normal align-top lg:fixed lg:mb-0">
+    <div className="mx-auto min-h-screen max-w-8xl space-y-12 space-x-4 px-4 pb-16 pt-24 md:px-8 md:pb-28 lg:pt-28">
+      <aside className="right-auto mb-8 flex w-80 flex-col break-normal align-top lg:fixed lg:mb-0">
         <TreeNode node={tree} path="/docs" />
       </aside>
 
       <DocWrapper>
-        {source.frontmatter?.title && <h1>{source.frontmatter.title}</h1>}
-        <MDXRemote {...source} />
+        {dir ? (
+          <>
+            {dir.pretty !== null && <h1>{dir.pretty}</h1>}
+            <ul>
+              {dir.children.map((child) => (
+                <li key={child.value}>
+                  <Link href={`${(slug as string[]).join("/")}/${child.value}`}>
+                    <a>{child.pretty ? child.pretty : child.value}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <>
+            {source!.frontmatter?.title && <h1>{source!.frontmatter.title}</h1>}
+            <MDXRemote {...source!} />
+          </>
+        )}
       </DocWrapper>
     </div>
   );

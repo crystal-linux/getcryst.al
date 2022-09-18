@@ -20,6 +20,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/docs",
+        destination: "/docs/crystal-linux/getting-started",
+        permanent: true,
+      },
+      {
         source: "/discord",
         destination: "https://discord.com/invite/76RR4VC45V",
         permanent: true,

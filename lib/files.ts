@@ -6,13 +6,13 @@ export async function* walkFiles(dir: string): AsyncGenerator<string> {
 
   for (const dirent of dirents) {
     const res = resolve(dir, dirent.name);
-    if (dirent.isDirectory()) {
-      if (!dirent.name.startsWith(".")) {
+    if (!dirent.name.startsWith(".")) {
+      if (dirent.isDirectory()) {
         yield res;
         yield* walkFiles(res);
+      } else {
+        yield res;
       }
-    } else {
-      yield res;
     }
   }
 }
