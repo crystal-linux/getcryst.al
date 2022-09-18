@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
 const Footer = () => (
-  <footer className="border-t border-ctp-mantle bg-ctp-base text-ctp-text">
+  <footer className="border-t border-ctp-mantle text-ctp-text">
     <div className="mx-auto flex max-w-8xl flex-col gap-8 px-4 py-6 md:flex-row md:px-8">
       <section className="basis-1/3">
         <h4 className="text-2xl font-bold">About</h4>

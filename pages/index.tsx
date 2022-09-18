@@ -107,7 +107,7 @@ const Home: NextPageWithLayout = () => {
 };
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  return <main className="flex flex-col items-center bg-ctp-base">{page}</main>;
+  return <main className="flex flex-col items-center">{page}</main>;
 };
 
 export default Home;
