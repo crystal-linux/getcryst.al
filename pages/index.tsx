@@ -87,7 +87,7 @@ const Home: NextPageWithLayout = () => {
           <p className="mt-4 max-w-3xl text-ctp-subtext1">
             Amethyst is a fast, efficient and lightweight AUR helper and Pacman
             wrapper. Made for Crystal, compatible with any Arch-based Linux
-            distribution
+            distribution.
           </p>
 
           <Link href="/docs/amethyst/getting-started">
