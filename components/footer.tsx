@@ -4,8 +4,10 @@ import {
   faMastodon,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faDonate } from "@fortawesome/free-solid-svg-icons";
-import { faMessage as faSolidMessage } from "@fortawesome/free-solid-svg-icons";
+import {
+  faDonate,
+  faMessage as faSolidMessage
+} from "@fortawesome/free-solid-svg-icons";
 import { faMessage } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
