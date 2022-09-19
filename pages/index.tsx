@@ -9,6 +9,8 @@ import { ReactElement } from "react";
 
 import onyxDark from "../public/demos/onyx-dark.png";
 import onyxLight from "../public/demos/onyx-light.png";
+import snapshots from "../public/demos/snapshots.png"
+import timeshiftSnapshots from "../public/demos/timeshift-snapshots.png"
 import AmePreview from "../components/AmePreview";
 import HomeSection from "../components/HomeSection";
 
@@ -20,7 +22,7 @@ const Home: NextPageWithLayout = () => {
       <section>
         <div className="flex flex-col items-center justify-center px-4 pt-36 text-center md:px-8 md:pb-32 lg:pt-44">
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-ctp-text md:text-5xl lg:text-6xl">
-            An arch based distribution
+            An Arch based distribution
           </h1>
           <p className="mb-6 text-lg font-normal text-ctp-subtext1 sm:px-16 lg:text-xl xl:px-48">
             Crystal Linux is a brand new Arch Linux based distribution.
@@ -75,6 +77,14 @@ const Home: NextPageWithLayout = () => {
           <p className="mt-4 max-w-3xl space-y-6 text-ctp-subtext1">
             Backup & Restore your system. Easily boot into Btrfs snapshots.
           </p>
+        </div>
+
+        <div className="flex basis-3/4 justify-center">
+          <Image
+            src={timeshiftSnapshots}
+            className="rounded-xl shadow-lg shadow-ctp-crust"
+            alt="a screenshot showing timeshift, a graphical snapshot tool. 5 snapshots are shown in the window."
+          />
         </div>
       </HomeSection>
 

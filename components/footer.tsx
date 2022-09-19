@@ -4,7 +4,9 @@ import {
   faMastodon,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faMessage } from "@fortawesome/free-solid-svg-icons";
+import { faDonate } from "@fortawesome/free-solid-svg-icons";
+import { faMessage as faSolidMessage } from "@fortawesome/free-solid-svg-icons";
+import { faMessage } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
@@ -24,7 +26,7 @@ const Footer = () => (
           <li>
             <a href="https://forum.getcryst.al/">
               <FontAwesomeIcon
-                icon={faMessage}
+                icon={faSolidMessage}
                 className="mr-1"
                 fixedWidth={true}
               />
@@ -73,11 +75,35 @@ const Footer = () => (
               </a>
             </Link>
           </li>
+          <li>
+            <Link href="https://matrix.to/#/#crystal:tar.black">
+              <a>
+                <FontAwesomeIcon
+                  icon={faMessage}
+                  className="mr-1"
+                  fixedWidth={true}
+                />
+                Matrix
+              </a>
+            </Link>
+          </li>
         </ul>
       </section>
       <section className="basis-1/3">
         <h4 className="text-2xl font-bold">Other</h4>
         <ul>
+        <li>
+            <Link href="https://opencollective.com/crystal-linux">
+              <a>
+                <FontAwesomeIcon
+                  icon={faDonate}
+                  className="mr-1"
+                  fixedWidth={true}
+                />
+                Open Collective
+              </a>
+            </Link>
+          </li>
           <li>
             <a href="https://github.com/crystal-linux/.github/blob/main/CONTRIBUTING.md">
               Contributing Guidelines
