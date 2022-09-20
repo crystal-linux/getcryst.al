@@ -1,6 +1,7 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,6 +13,8 @@ const Navbar = () => {
   const [scrollTop, setScrollTop] = useState(0);
   const [toggled, setToggled] = useState(false);
   const { route } = useRouter();
+  const { t: common } = useTranslation("common");
+  const { t } = useTranslation("navbar");
 
   useEffect(() => {
     const onScroll = () => {
@@ -58,7 +61,7 @@ const Navbar = () => {
             className="mr-3 hidden rounded-lg bg-ctp-mauve px-5 py-2.5 text-center text-sm font-medium text-ctp-base !no-underline focus:outline-none focus:ring-4 md:mr-0 md:block"
             href="https://github.com/crystal-linux/iso/releases/latest"
           >
-            Download
+            {common("generics.download")}
           </a>
 
           <button
@@ -68,7 +71,7 @@ const Navbar = () => {
               setToggled(!toggled);
             }}
           >
-            <span className="sr-only">Open main menu</span>
+            <span className="sr-only">{t("open_main_menu")}</span>
             <svg
               className="h-6 w-6"
               fill="currentColor"
@@ -98,7 +101,7 @@ const Navbar = () => {
                       : "text-ctp-text md:hover:text-ctp-mauve"
                   } no-underline md:p-0`}
                 >
-                  Home
+                  {common("locations.home")}
                 </a>
               </Link>
             </li>
@@ -107,7 +110,7 @@ const Navbar = () => {
                 href="https://forum.getcryst.al/"
                 className="md:dark:hover:bg-transparen block rounded py-2 pr-4 pl-3 text-ctp-text no-underline md:p-0 md:hover:bg-transparent md:hover:text-ctp-mauve"
               >
-                Forum
+                {common("locations.forums")}
                 <FontAwesomeIcon
                   className="ml-2"
                   icon={faArrowUpRightFromSquare}
@@ -123,7 +126,7 @@ const Navbar = () => {
                       : "text-ctp-text md:hover:text-ctp-mauve"
                   } no-underline md:p-0`}
                 >
-                  Docs
+                  {common("locations.docs")}
                 </a>
               </Link>
             </li>
@@ -132,7 +135,7 @@ const Navbar = () => {
                 className={`block rounded py-2 pr-4 pl-3 text-ctp-text no-underline md:bg-transparent md:p-0 md:hover:text-ctp-mauve`}
                 href="https://github.com/crystal-linux/"
               >
-                Github
+                {common("locations.github")}
                 <FontAwesomeIcon
                   className="ml-2"
                   icon={faArrowUpRightFromSquare}
@@ -144,7 +147,7 @@ const Navbar = () => {
                 className={`block rounded py-2 pr-4 pl-3 text-ctp-text no-underline md:bg-transparent md:p-0 md:hover:text-ctp-mauve`}
                 href="https://github.com/crystal-linux/iso/releases/latest"
               >
-                Download
+                {common("generics.download")}
                 <FontAwesomeIcon
                   className="ml-2"
                   icon={faArrowUpRightFromSquare}
@@ -156,7 +159,7 @@ const Navbar = () => {
                 !toggled ? "hidden" : ""
               } mt-2 flex items-center justify-between border-t border-ctp-mantle px-2 pt-4 md:hidden`}
             >
-              <p className="text-ctp-text">Switch Theme</p>{" "}
+              <p className="text-ctp-text">{t("switch_theme")}</p>
               <NativeThemeSwitcher />
             </div>
           </ul>

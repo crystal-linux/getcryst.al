@@ -22,10 +22,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-function GetCrystal({
-  Component,
-  pageProps,
-}: AppPropsWithLayout) {
+function GetCrystal({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (

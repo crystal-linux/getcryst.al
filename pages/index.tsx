@@ -7,33 +7,38 @@ import { NextPageWithLayout } from "./_app";
 import { ReactElement } from "react";
 import onyxDark from "../public/demos/onyx-dark.png";
 import onyxLight from "../public/demos/onyx-light.png";
-import timeshiftSnapshots from "../public/demos/timeshift-snapshots.png"
+import timeshiftSnapshots from "../public/demos/timeshift-snapshots.png";
 import AmePreview from "../components/AmePreview";
 import HomeSection from "../components/HomeSection";
 import { useRouter } from "next/router";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['common', 'footer', 'home'])),
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "footer",
+        "home",
+        "navbar",
+      ])),
     },
   };
-}
+};
 
 const Home: NextPageWithLayout = () => {
   const { resolvedTheme } = useTheme();
-  const { locale } = useRouter()
+  const { locale } = useRouter();
 
-  const { t: common }  = useTranslation("common")
-  const { t }  = useTranslation("home")
+  const { t: common } = useTranslation("common");
+  const { t } = useTranslation("home");
 
   return (
     <>
       <section>
-        <div className="flex-col items-center justify-center px-4 pt-36 flex text-center md:px-8 md:pb-32 lg:pt-44">
+        <div className="flex flex-col items-center justify-center px-4 pt-36 text-center md:px-8 md:pb-32 lg:pt-44">
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-ctp-text md:text-5xl lg:text-6xl">
             {common("header")}
           </h1>
@@ -41,7 +46,7 @@ const Home: NextPageWithLayout = () => {
             {common("subtitle")}
           </p>
 
-          <div className="w-full flex gap-2 justify-center flex-wrap">
+          <div className="flex w-full flex-wrap justify-center gap-2">
             <a
               className="inline-flex w-full items-center justify-center rounded-lg bg-ctp-mauve py-3 px-5 text-center text-base font-medium text-ctp-base no-underline focus:ring-4 sm:w-fit"
               href="https://github.com/crystal-linux/iso/releases/latest"
@@ -61,13 +66,12 @@ const Home: NextPageWithLayout = () => {
 
       <HomeSection className="">
         <div className="basis-1/4">
-          <p className="mt-8 font-semibold text-ctp-maroon"></p>
+          <p className="mt-8 font-semibold text-ctp-maroon">{t("onyx.tag")}</p>
           <p className="mt-4 text-3xl font-extrabold tracking-tight text-ctp-text sm:text-4xl">
-            Onyx built-in
+            {t("onyx.title")}
           </p>
           <p className="mt-4 max-w-3xl text-ctp-subtext1">
-            Install Crystal with it{"'"}s in-house desktop experience, a custom
-            GNOME session with a familiar layout. Or choose your favourite!
+            {t("onyx.description")}
           </p>
         </div>
 
@@ -82,12 +86,14 @@ const Home: NextPageWithLayout = () => {
 
       <HomeSection>
         <div>
-          <p className="mt-8 font-semibold text-ctp-rosewater">Buttery</p>
+          <p className="mt-8 font-semibold text-ctp-rosewater">
+            {t("timeshift.tag")}
+          </p>
           <p className="mt-4 text-3xl font-extrabold tracking-tight text-ctp-text sm:text-4xl">
-            Automatic Backups
+            {t("timeshift.title")}
           </p>
           <p className="mt-4 max-w-3xl space-y-6 text-ctp-subtext1">
-            Backup & Restore your system. Easily boot into Btrfs snapshots.
+            {t("timeshift.description")}
           </p>
         </div>
 
@@ -102,19 +108,19 @@ const Home: NextPageWithLayout = () => {
 
       <HomeSection className="pb-16 md:pb-28">
         <div className="basis-1/4">
-          <p className="mt-8 font-semibold text-ctp-mauve">Rusty Quartz?</p>
+          <p className="mt-8 font-semibold text-ctp-mauve">
+            {t("amethyst.tag")}
+          </p>
           <p className="mt-4 text-3xl font-extrabold tracking-tight text-ctp-text sm:text-4xl">
-            Amethyst
+            {t("amethyst.title")}
           </p>
           <p className="mt-4 max-w-3xl text-ctp-subtext1">
-            Amethyst is a fast, efficient and lightweight AUR helper and Pacman
-            wrapper. Made for Crystal, compatible with any Arch-based Linux
-            distribution.
+            {t("amethyst.decsription")}
           </p>
 
           <Link href="/docs/amethyst/getting-started">
-            <a className="inline-flex mt-4 w-full items-center border border-ctp-mantle bg-ctp-surface0 justify-center gap-2 rounded-full py-2 px-4 text-center text-base font-medium text-ctp-text no-underline focus:ring-4 sm:w-fit">
-              Learn more
+            <a className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border border-ctp-mantle bg-ctp-surface0 py-2 px-4 text-center text-base font-medium text-ctp-text no-underline focus:ring-4 sm:w-fit">
+              {common("generics.learn_more")}
               <FontAwesomeIcon icon={faArrowRight} />
             </a>
           </Link>
