@@ -115,7 +115,7 @@ const Home: NextPageWithLayout = () => {
             {t("amethyst.title")}
           </p>
           <p className="mt-4 max-w-3xl text-ctp-subtext1">
-            {t("amethyst.decsription")}
+            {t("amethyst.description")}
           </p>
 
           <Link href="/docs/amethyst/getting-started">
