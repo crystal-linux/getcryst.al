@@ -1,6 +1,7 @@
 // next.config.mjs
 import remarkGfm from "remark-gfm";
 import createMDX from "@next/mdx";
+// import { i18n } from "./next-i18next.config"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -30,6 +31,10 @@ const nextConfig = {
         permanent: true,
       },
     ];
+  },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'de'],
   },
 };
 

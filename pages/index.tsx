@@ -3,30 +3,42 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import Image from "next/future/image";
-
 import { NextPageWithLayout } from "./_app";
 import { ReactElement } from "react";
-
 import onyxDark from "../public/demos/onyx-dark.png";
 import onyxLight from "../public/demos/onyx-light.png";
-import snapshots from "../public/demos/snapshots.png"
 import timeshiftSnapshots from "../public/demos/timeshift-snapshots.png"
 import AmePreview from "../components/AmePreview";
 import HomeSection from "../components/HomeSection";
+import { useRouter } from "next/router";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticProps } from "next";
+import { useTranslation } from "next-i18next";
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['common', 'footer', 'home'])),
+    },
+  };
+}
 
 const Home: NextPageWithLayout = () => {
   const { resolvedTheme } = useTheme();
+  const { locale } = useRouter()
+
+  const { t: common }  = useTranslation("common")
+  const { t }  = useTranslation("home")
 
   return (
     <>
       <section>
-        <div className="flex flex-col items-center justify-center px-4 pt-36 text-center md:px-8 md:pb-32 lg:pt-44">
+        <div className="flex-col items-center justify-center px-4 pt-36 flex text-center md:px-8 md:pb-32 lg:pt-44">
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-ctp-text md:text-5xl lg:text-6xl">
-            An Arch based distribution
+            {common("header")}
           </h1>
           <p className="mb-6 text-lg font-normal text-ctp-subtext1 sm:px-16 lg:text-xl xl:px-48">
-            Crystal Linux is a brand new Arch Linux based distribution.
-            Friendly, powerful and easy to use.
+            {common("subtitle")}
           </p>
 
           <div className="w-full flex gap-2 justify-center flex-wrap">
@@ -34,12 +46,12 @@ const Home: NextPageWithLayout = () => {
               className="inline-flex w-full items-center justify-center rounded-lg bg-ctp-mauve py-3 px-5 text-center text-base font-medium text-ctp-base no-underline focus:ring-4 sm:w-fit"
               href="https://github.com/crystal-linux/iso/releases/latest"
             >
-              Download
+              {common("generics.download")}
             </a>
 
             <Link href="/docs/crystal-linux/getting-started">
               <a className="inline-flex w-full items-center justify-center gap-2 rounded-lg py-3 px-5 text-center text-base font-medium text-ctp-text no-underline focus:ring-4 sm:w-fit">
-                Getting Started
+                {common("generics.getting_started")}
                 <FontAwesomeIcon icon={faArrowRight} />
               </a>
             </Link>
@@ -49,7 +61,7 @@ const Home: NextPageWithLayout = () => {
 
       <HomeSection className="">
         <div className="basis-1/4">
-          <p className="mt-8 font-semibold text-ctp-maroon">Beautiful</p>
+          <p className="mt-8 font-semibold text-ctp-maroon"></p>
           <p className="mt-4 text-3xl font-extrabold tracking-tight text-ctp-text sm:text-4xl">
             Onyx built-in
           </p>
