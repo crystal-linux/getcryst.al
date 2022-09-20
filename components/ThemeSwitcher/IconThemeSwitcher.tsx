@@ -15,7 +15,7 @@ const IconThemeSwitcher = () => {
   }, []);
 
   if (!mounted) {
-    return null;
+    return <span className="w-[21.88px] p-2.5" />;
   }
 
   const changeTheme = (theme: string) => {
@@ -46,6 +46,7 @@ const IconThemeSwitcher = () => {
         <FontAwesomeIcon
           size="lg"
           icon={resolvedTheme === "light" ? faSun : faMoon}
+          fixedWidth
         />
       </button>
       <div
