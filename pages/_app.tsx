@@ -8,8 +8,9 @@ import SEO from "../next-seo.config";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { ThemeProvider } from "next-themes";
-import { ReactElement, ReactNode } from "react";
+import { ReactElement, ReactNode, useRef } from "react";
 import { NextPage } from "next";
+import { appWithTranslation } from "next-i18next";
 
 config.autoAddCss = false;
 
@@ -21,7 +22,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-export default function GetCrystal({
+function GetCrystal({
   Component,
   pageProps,
 }: AppPropsWithLayout) {
@@ -45,3 +46,5 @@ export default function GetCrystal({
     </ThemeProvider>
   );
 }
+
+export default appWithTranslation(GetCrystal);
