@@ -19,6 +19,7 @@ import { NextPageWithLayout } from "../_app";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import TranslationInfo from "../../components/TranslationInfo";
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const paths: GetStaticPathsResult["paths"] = [];
@@ -50,6 +51,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     "common",
     "footer",
     "navbar",
+    "meta",
   ]);
 
   let path = ["_docs", locale, ...slug].join("/") + ".mdx";
@@ -172,6 +174,7 @@ const DocPage: NextPageWithLayout<{
         {dir ? (
           <>
             {dir.pretty !== null && <h1>{dir.pretty}</h1>}
+            <TranslationInfo />
             <ul>
               {dir.children.map((child) => (
                 <li key={child.value}>
@@ -185,6 +188,7 @@ const DocPage: NextPageWithLayout<{
         ) : (
           <>
             {source!.frontmatter?.title && <h1>{source!.frontmatter.title}</h1>}
+            <TranslationInfo />
             <MDXRemote {...source!} />
           </>
         )}
