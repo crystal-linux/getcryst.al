@@ -38,7 +38,7 @@ const IconThemeSwitcher = () => {
         onBlur={() => {
           requestAnimationFrame(() => {
             if (!ref.current?.contains(document.activeElement)) {
-              setToggled(!toggled);
+              setToggled(false);
             }
           });
         }}

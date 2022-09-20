@@ -22,7 +22,7 @@ const NativeThemeSwitcher = () => {
       {theme}
       <FontAwesomeIcon icon={faAngleDown} size="sm" />
       <select
-        onClick={(e) => {
+        onChange={(e) => {
           setTheme(e.currentTarget.value);
         }}
         className="absolute inset-0 h-full w-full appearance-none opacity-0"
