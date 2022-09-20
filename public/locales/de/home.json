@@ -1,0 +1,17 @@
+{
+  "onyx": {
+    "tag": "Wunderschön",
+    "title": "Onyx",
+    "description": "Installieren Sie Crystal Linux mit der hauseigenen Desktop-Oberfläche, einer benutzerdefinierten GNOME-Sitzung mit einem vertrauten Layout. Oder wählen Sie Ihren Favoriten!"
+  },
+  "timeshift": {
+    "tag": "Geschmeidig",
+    "title": "Automatische Backups",
+    "description": "Sichern und Wiederherstellen Ihres Systems. Einfaches Booten in Btrfs-Snapshots."
+  },
+  "amethyst": {
+    "tag": "Rostiger Quarz?",
+    "title": "Amethyst",
+    "description": "Amethyst ist ein schneller, effizienter und leichter AUR-Helfer und Pacman Wrapper. Entwickelt für Crystal, kompatibel mit jeder Arch-basierten Linux Distribution."
+  }
+}
