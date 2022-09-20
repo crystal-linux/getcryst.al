@@ -1,6 +1,6 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import { join, resolve } from "path";
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps } from "next";
 import { removeExt, walkFiles } from "../../lib/files";
@@ -161,8 +161,14 @@ const DocPage: NextPageWithLayout<{
   dir: TreeItem | null;
 }> = ({ source, tree, dir }) => {
   const {
-    query: { slug },
+    query: { slug }, push
   } = useRouter();
+
+  useEffect(() => {
+    if (slug === undefined) {
+      push("/docs/crystal-linux/getting-started")
+    }
+  }, [push, slug])
 
   return (
     <div className="mx-auto min-h-screen max-w-8xl space-y-12 space-x-4 px-4 pb-16 pt-24 md:px-8 md:pb-28 lg:pt-28">
@@ -176,7 +182,7 @@ const DocPage: NextPageWithLayout<{
             {dir.pretty !== null && <h1>{dir.pretty}</h1>}
             <TranslationInfo />
             <ul>
-              {dir.children.map((child) => (
+              {slug && dir.children.map((child) => (
                 <li key={child.value}>
                   <Link href={`${(slug as string[]).join("/")}/${child.value}`}>
                     <a>{child.pretty ? child.pretty : child.value}</a>
