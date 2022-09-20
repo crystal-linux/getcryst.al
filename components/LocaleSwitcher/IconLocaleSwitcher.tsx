@@ -18,7 +18,7 @@ const IconLocaleSwitcher = () => {
   }, []);
 
   if (!mounted) {
-    return null;
+    return <span className="w-[21.88px] p-2.5" />;
   }
 
   const changeLocale = (locale: string) => {
