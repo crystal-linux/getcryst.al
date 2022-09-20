@@ -1,0 +1,17 @@
+{
+  "onyx": {
+    "tag": "Beatiful",
+    "title": "Onyx built-in",
+    "description": "Install Crystal with it's in-house desktop experience, a custom GNOME session with a familiar layout. Or choose your favourite!"
+  },
+  "timeshift": {
+    "tag": "Buttery",
+    "title": "Automatic Backups",
+    "description": "Backup & Restore your system. Easily boot into Btrfs snapshots."
+  },
+  "amethyst": {
+    "tag": "Rusty Quartz?",
+    "title": "Amethyst",
+    "description": "Amethyst is a fast, efficient and lightweight AUR helper and Pacman wrapper. Made for Crystal, compatible with any Arch-based Linux distribution."
+  }
+}

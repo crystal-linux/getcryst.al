@@ -1,7 +1,7 @@
 // next.config.mjs
 import remarkGfm from "remark-gfm";
 import createMDX from "@next/mdx";
-// import { i18n } from "./next-i18next.config"
+import i18next from "./next-i18next.config.js";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -32,10 +32,7 @@ const nextConfig = {
       },
     ];
   },
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'de'],
-  },
+  i18n: i18next.i18n,
 };
 
 const withMDX = createMDX({

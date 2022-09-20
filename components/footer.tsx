@@ -14,19 +14,17 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
 const Footer = () => {
-  const { t } = useTranslation('footer');
+  const { t } = useTranslation("common");
 
   return (
     <footer className="border-t border-ctp-mantle text-ctp-text">
       <div className="mx-auto flex max-w-8xl flex-col gap-8 px-4 py-6 md:flex-row md:px-8">
         <section className="basis-1/3">
-          <h4 className="text-2xl font-bold">About</h4>
-          <p>
-            {t("subtitle")}
-          </p>
+          <h4 className="text-2xl font-bold">{t("generics.about")}</h4>
+          <p>{t("subtitle")}</p>
         </section>
         <section className="basis-1/3">
-          <h4 className="text-2xl font-bold">Community</h4>
+          <h4 className="text-2xl font-bold">{t("generics.community")}</h4>
           <ul>
             <li>
               <a href="https://forum.getcryst.al/">
@@ -35,7 +33,7 @@ const Footer = () => {
                   className="mr-1"
                   fixedWidth={true}
                 />
-                Forums
+                {t("locations.forums")}
               </a>
             </li>
             <li>
@@ -45,7 +43,7 @@ const Footer = () => {
                   className="mr-1"
                   fixedWidth={true}
                 />
-                Twitter
+                {t("locations.twitter")}
               </a>
             </li>
             <li>
@@ -55,7 +53,7 @@ const Footer = () => {
                   className="mr-1"
                   fixedWidth={true}
                 />
-                Mastodon
+                {t("locations.mastodon")}
               </a>
             </li>
             <li>
@@ -65,7 +63,7 @@ const Footer = () => {
                   className="mr-1"
                   fixedWidth={true}
                 />
-                Github
+                {t("locations.github")}
               </a>
             </li>
             <li>
@@ -76,7 +74,7 @@ const Footer = () => {
                     className="mr-1"
                     fixedWidth={true}
                   />
-                  Discord
+                  {t("locations.discord")}
                 </a>
               </Link>
             </li>
@@ -88,14 +86,14 @@ const Footer = () => {
                     className="mr-1"
                     fixedWidth={true}
                   />
-                  Matrix
+                  {t("locations.matrix")}
                 </a>
               </Link>
             </li>
           </ul>
         </section>
         <section className="basis-1/3">
-          <h4 className="text-2xl font-bold">Other</h4>
+          <h4 className="text-2xl font-bold">{t("generics.other")}</h4>
           <ul>
             <li>
               <Link href="https://opencollective.com/crystal-linux">
@@ -105,22 +103,24 @@ const Footer = () => {
                     className="mr-1"
                     fixedWidth={true}
                   />
-                  Open Collective
+                  {t("locations.open_collective")}
                 </a>
               </Link>
             </li>
             <li>
               <a href="https://github.com/crystal-linux/.github/blob/main/CONTRIBUTING.md">
-                Contributing Guidelines
+                {t("locations.contributing_guidelines")}
               </a>
             </li>
             <li>
               <a href="https://www.contributor-covenant.org/">
-                The Contributor Covenant
+                {t("locations.contributor_covenant")}
               </a>
             </li>
             <li>
-              <a href="https://developercertificate.org/">The DCO</a>
+              <a href="https://developercertificate.org/">
+                {t("locations.dco")}
+              </a>
             </li>
           </ul>
         </section>
