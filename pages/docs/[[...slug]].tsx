@@ -2,7 +2,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { ReactElement } from "react";
 import { join, resolve } from "path";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticPathsResult, GetStaticProps } from "next";
 import { removeExt, walkFiles } from "../../lib/files";
 import { readFile, stat } from "fs/promises";
 import { readdir } from "fs/promises";
@@ -18,38 +18,41 @@ import rehypeHighlight from "rehype-highlight";
 import { NextPageWithLayout } from "../_app";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: {
-    params: {
-      slug: string[];
-    };
-  }[] = [];
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const paths: GetStaticPathsResult["paths"] = [];
 
-  for await (const file of walkFiles("_docs/")) {
-    const path = file.slice(resolve(process.cwd(), "_docs/").length);
+  for (const locale of locales!) {
+    for await (const file of walkFiles(`_docs/${locale}`)) {
+      const path = file.slice(
+        resolve(process.cwd(), `_docs/${locale}/`).length
+      );
 
-    paths.push({
-      params: {
-        slug: removeExt(path).split("/").slice(1),
-      },
-    });
+      paths.push({
+        params: {
+          slug: removeExt(path).split("/").slice(1),
+          locale,
+        },
+      });
+    }
   }
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const slug =
-    context.params!.slug === undefined
-      ? []
-      : (context.params!.slug as string[]);
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const slug = params!.slug === undefined ? [] : (params!.slug as string[]);
+  const translations = await serverSideTranslations(locale!, [
+    "common",
+    "footer",
+    "navbar",
+  ]);
 
-  let path = ["_docs", ...slug].join("/") + ".mdx";
-
+  let path = ["_docs", locale, ...slug].join("/") + ".mdx";
   let isDir: boolean = false;
 
   const walk = async (node: TreeItemConstructor, dir: string, i = 0) => {
@@ -81,7 +84,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             if (title) node.children.at(-1)!.pretty = title;
             if (weight) node.children.at(-1)!.weight = weight;
           }
-        } catch (_) {}
+        } catch (_) { }
 
         if (current && i + 1 == slug.length && node.children.length > 0) {
           isDir = true;
@@ -106,12 +109,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 
   const tree = (
-    await walk(new TreeItemConstructor("root", true), "_docs/")
+    await walk(new TreeItemConstructor("root", true), `_docs/${locale}/`)
   ).sort();
 
   if (isDir || slug.length === 0) {
     const plain = tree.plain();
-    return { props: { source: null, tree: plain, dir: findCurrentDir(plain) } };
+    return {
+      props: {
+        source: null,
+        tree: plain,
+        dir: findCurrentDir(plain),
+        ...translations,
+      },
+    };
   }
 
   const mdxSource = await serialize(
@@ -134,7 +144,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
   );
 
-  return { props: { source: mdxSource, tree: tree.plain() } };
+  return {
+    props: {
+      source: mdxSource,
+      tree: tree.plain(),
+      ...translations,
+    },
+  };
 };
 
 const DocPage: NextPageWithLayout<{

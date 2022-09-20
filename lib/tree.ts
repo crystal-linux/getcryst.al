@@ -52,13 +52,11 @@ export const findCurrentDir = (node: TreeItem): TreeItem | null => {
     return null;
   }
 
-  const further = node.children.find(
-    (child) => child.current && child.children.length !== 0
-  );
-
-  if (further) {
-    return further;
+  for (const child of node.children) {
+    if (child.current && child.children.length !== 0) {
+      return child;
+    }
   }
 
-  return findCurrentDir(node);
+  return node;
 };
