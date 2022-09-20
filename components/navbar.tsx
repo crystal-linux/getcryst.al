@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import IconLocaleSwitcher from "./LocaleSwitcher/IconLocaleSwitcher";
+import NativeLocaleSwitcher from "./LocaleSwitcher/NativeLocaleSwitcher";
 import IconThemeSwitcher from "./ThemeSwitcher/IconThemeSwitcher";
 import NativeThemeSwitcher from "./ThemeSwitcher/NativeThemeSwitcher";
 
@@ -32,11 +34,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`py-2.5 ${
-        scrollTop != 0 || toggled
+      className={`py-2.5 ${scrollTop != 0 || toggled
           ? "border-b border-ctp-mantle bg-ctp-base bg-opacity-80 backdrop-blur-md"
           : ""
-      } fixed top-0 left-0 z-20 w-full `}
+        } fixed top-0 left-0 z-20 w-full `}
     >
       <div className="container mx-auto flex max-w-8xl flex-wrap items-center justify-between px-4 md:px-8">
         <Link href="/">
@@ -49,12 +50,13 @@ const Navbar = () => {
         </Link>
         <div className="flex md:order-2">
           <IconThemeSwitcher />
+          <IconLocaleSwitcher />
           <a
             type="button"
             className="mr-2 hidden items-center rounded-lg p-2.5 text-center text-sm font-medium text-ctp-subtext0 focus:outline-none focus:ring-4 md:inline-flex"
             href="https://github.com/crystal-linux/"
           >
-            <FontAwesomeIcon icon={faGithub} size="lg" />
+            <FontAwesomeIcon icon={faGithub} size="lg" fixedWidth={true} />
           </a>
 
           <a
@@ -87,19 +89,17 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`${
-            !toggled ? "hidden" : ""
-          } w-full items-center justify-between md:visible md:order-1 md:flex md:w-auto`}
+          className={`${!toggled ? "hidden" : ""
+            } w-full items-center justify-between md:visible md:order-1 md:flex md:w-auto`}
         >
           <ul className="mt-4 flex flex-col gap-2 rounded-lg border border-ctp-mantle bg-ctp-base p-4 md:mt-0 md:flex-row md:gap-0 md:space-x-8 md:border-0 md:bg-inherit md:text-sm md:font-medium md:dark:bg-inherit">
             <li>
               <Link href="/">
                 <a
-                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${
-                    route === "/"
+                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${route === "/"
                       ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
                       : "text-ctp-text md:hover:text-ctp-mauve"
-                  } no-underline md:p-0`}
+                    } no-underline md:p-0`}
                 >
                   {common("locations.home")}
                 </a>
@@ -120,11 +120,10 @@ const Navbar = () => {
             <li>
               <Link href="/docs/">
                 <a
-                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${
-                    route.split("/")[1] === "docs"
+                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${route.split("/")[1] === "docs"
                       ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
                       : "text-ctp-text md:hover:text-ctp-mauve"
-                  } no-underline md:p-0`}
+                    } no-underline md:p-0`}
                 >
                   {common("locations.docs")}
                 </a>
@@ -154,14 +153,18 @@ const Navbar = () => {
                 />
               </a>
             </li>
-            <div
-              className={`${
-                !toggled ? "hidden" : ""
-              } mt-2 flex items-center justify-between border-t border-ctp-mantle px-2 pt-4 md:hidden`}
-            >
-              <p className="text-ctp-text">{t("switch_theme")}</p>
-              <NativeThemeSwitcher />
-            </div>
+            {toggled && (
+              <>
+                <div className="flex items-center justify-between border-t border-ctp-mantle px-2 pt-2 md:hidden">
+                  <p className="text-ctp-text">{t("switch_theme")}</p>
+                  <NativeThemeSwitcher />
+                </div>
+                <div className="flex items-center justify-between px-2 md:hidden">
+                  <p className="text-ctp-text">{t("change_language")}</p>
+                  <NativeLocaleSwitcher />
+                </div>
+              </>
+            )}
           </ul>
         </div>
       </div>
