@@ -1,0 +1,17 @@
+{
+  "onyx": {
+    "tag": "Prachtig",
+    "title": "Onyx ingebouwd",
+    "description": "Installeer Crystal met haar unieke desktopervaring, een zelfgemaakte GNOME sessie met een bekende lay-out. Of kies jouw favoriet!"
+  },
+  "timeshift": {
+    "tag": "Vloeiend",
+    "title": "Automatische Back-ups",
+    "description": "Back-up en herstel jouw systeem. Start makkelijk op binnen een Btrfs momentopname."
+  },
+  "amethyst": {
+    "tag": "Roestig Kwarts?",
+    "title": "Amethyst",
+    "description": "Amethyst is een snelle, efficiënte en compacte AUR helper en Pacman wrapper. Gemaakt voor Crystal, werkt op elke Arch-gebaseerde Linux distributie."
+  }
+}
