@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { FC } from "react";
-import { TreeItem } from "../lib/tree";
+import { ITreeItem } from "../lib/tree";
 
-const TreeNode: FC<{ node: TreeItem; path: string }> = ({
+const TreeNode: FC<{ node: ITreeItem; path: string }> = ({
   node: { children, value, current, pretty },
   path,
 }) => {
