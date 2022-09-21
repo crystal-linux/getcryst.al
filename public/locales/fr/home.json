@@ -12,6 +12,6 @@
   "amethyst": {
     "tag": "Quartz rouillé?",
     "title": "Amethyst",
-    "description": "Amethyst est un assistant de AUR et emballage pour Pacman qui est rapide, efficient et légère. C'était fabriqué pour Crystal, mais c'est compatible avec n'importe quelle distribution basée sur Arch Linux."
+    "description": "Amethyst est un assistant AUR et une surcouche pour Pacman rapides, efficaces et légers. Il a été développé pour Crystal, mais est compatible avec n'importe quelle distribution basée sur Arch Linux."
   }
 }
