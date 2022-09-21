@@ -1,13 +1,13 @@
 {
   "onyx": {
-    "tag": "Beatiful",
+    "tag": "Beautiful",
     "title": "Onyx built-in",
-    "description": "Install Crystal with it's in-house desktop experience, a custom GNOME session with a familiar layout. Or choose your favourite!"
+    "description": "Install Crystal with its in-house desktop experience, a custom GNOME session with a familiar layout. Or choose your favourite!"
   },
   "timeshift": {
     "tag": "Buttery",
     "title": "Automatic Backups",
-    "description": "Backup & Restore your system. Easily boot into Btrfs snapshots."
+    "description": "Backup and Restore your system. Easily boot into Btrfs snapshots."
   },
   "amethyst": {
     "tag": "Rusty Quartz?",
