@@ -1,0 +1,17 @@
+{
+  "onyx": {
+    "tag": "Beau",
+    "title": "Onyx inclus",
+    "description": "Installer Crystal avec sa propre experience de bureau, une session de GNOME avec une disposition familière. Ou, choisissez votre environnment préféré!"
+  },
+  "timeshift": {
+    "tag": "Sûr",
+    "title": "Sauvegardes Automatiques",
+    "description": "Sauvegardez et Restaurez votre système. Démarrez dans des aperçus Btrfs facilement."
+  },
+  "amethyst": {
+    "tag": "Quartz rouillé?",
+    "title": "Amethyst",
+    "description": "Amethyst est un assistant de AUR et emballage pour Pacman qui est rapide, efficient et légère. C'était fabriqué pour Crystal, mais c'est compatible avec n'importe quelle distribution basée sur Arch."
+  }
+}

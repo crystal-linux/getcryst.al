@@ -1,0 +1,28 @@
+{
+  "header": "Une distribution baseé sur Arch",
+  "subtitle": "Crystal Linux est une nouvelle distribution basée sur Arch Linux. Amiable, puissant et facile à utiliser.",
+
+  "generics": {
+    "download": "Télécharger",
+    "getting_started": "Commencer",
+    "learn_more": "Apprendre Plus",
+    "about": "À Propos du Projet",
+    "community": "Communauté",
+    "other": "Autres Ressources"
+  },
+
+  "locations": {
+    "home": "Accueil",
+    "docs": "Documentation",
+    "forums": "Forum",
+    "twitter": "Twitter",
+    "mastodon": "Mastodon",
+    "github": "Github",
+    "discord": "Discord",
+    "matrix": "Matrix",
+    "open_collective": "Open Collective",
+    "contributing_guidelines": "Directrices Pour les Contributions",
+    "contributor_covenant": "Code de Conduite 'Contributor Covenant'",
+    "dco": "Le DCO"
+  }
+}
