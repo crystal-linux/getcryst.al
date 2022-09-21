@@ -1,0 +1,28 @@
+{
+  "header": "Een op Arch gebaseerde Linux distributie",
+  "subtitle": "Crystal Linux is een gloednieuwe op arch gebaseerde Linux distributie. Krachtig en Gebruikersvriendelijk",
+
+  "generics": {
+    "download": "Download",
+    "getting_started": "Beginnen",
+    "learn_more": "Meer informatie",
+    "about": "Over",
+    "community": "Community",
+    "other": "Overig"
+  },
+
+  "locations": {
+    "home": "Hoofdpagina",
+    "docs": "Documentatie",
+    "forums": "Fora",
+    "twitter": "Twitter",
+    "mastodon": "Mastodon",
+    "github": "Github",
+    "discord": "Discord",
+    "matrix": "Matrix",
+    "open_collective": "Open Collective",
+    "contributing_guidelines": "Regelement van Contribueren",
+    "contributor_covenant": "Contributantenovereenkomst",
+    "dco": "Het DCO"
+  }
+}
