@@ -10,7 +10,7 @@
     "description": "Sauvegardez et Restaurez votre système. Démarrez facilement sur des instantanés Btrfs."
   },
   "amethyst": {
-    "tag": "Quartz rouillé?",
+    "tag": "Quartz rouillé ?",
     "title": "Amethyst",
     "description": "Amethyst est un assistant AUR et une surcouche pour Pacman rapides, efficaces et légers. Il a été développé pour Crystal, mais est compatible avec n'importe quelle distribution basée sur Arch Linux."
   }
