@@ -7,6 +7,7 @@ import i18next from "./next-i18next.config.js";
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  basePath: '/site',
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
