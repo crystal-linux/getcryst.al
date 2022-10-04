@@ -6,6 +6,7 @@ import createMDX from "@next/mdx";
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  basePath: '/site',
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
