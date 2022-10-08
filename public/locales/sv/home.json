@@ -1,0 +1,17 @@
+{
+  "onyx": {
+    "tag": "Vacker",
+    "title": "Onyx inbyggt",
+    "description": "Installera Crystal med dess egen utvecklade skrivbordsupplevelse, en anpassad GNOME session med en bekant layout. Eller välj din egen favorit!"
+  },
+  "timeshift": {
+    "tag": "Smörig",
+    "title": "Automatisk säkerhetskopering",
+    "description": "Säkerhetskopiera och återställ ditt system. Starta enkelt uppp till dina Btrfs ögonblicksavbilder."
+  },
+  "amethyst": {
+    "tag": "Rostig kvarts?",
+    "title": "Amethyst",
+    "description": "Amethyst är en snabb, effektiv och lättviktig AUR-hjälpare och Pacman wrapper. Skapad för Crystal, kompatibel med vilken Arch-baserad Linux distribution som helst."
+  }
+}
