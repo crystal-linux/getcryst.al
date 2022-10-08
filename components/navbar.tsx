@@ -34,10 +34,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`py-2.5 ${scrollTop != 0 || toggled
+      className={`py-2.5 ${
+        scrollTop != 0 || toggled
           ? "border-b border-ctp-mantle bg-ctp-base bg-opacity-80 backdrop-blur-md"
           : ""
-        } fixed top-0 left-0 z-20 w-full `}
+      } fixed top-0 left-0 z-20 w-full `}
     >
       <div className="container mx-auto flex max-w-8xl flex-wrap items-center justify-between px-4 md:px-8">
         <Link href="/">
@@ -89,17 +90,19 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`${!toggled ? "hidden" : ""
-            } w-full items-center justify-between md:visible md:order-1 md:flex md:w-auto`}
+          className={`${
+            !toggled ? "hidden" : ""
+          } w-full items-center justify-between md:visible md:order-1 md:flex md:w-auto`}
         >
           <ul className="mt-4 flex flex-col gap-2 rounded-lg border border-ctp-mantle bg-ctp-base p-4 md:mt-0 md:flex-row md:gap-0 md:space-x-8 md:border-0 md:bg-inherit md:text-sm md:font-medium md:dark:bg-inherit">
             <li>
               <Link href="/">
                 <a
-                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${route === "/"
+                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${
+                    route === "/"
                       ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
                       : "text-ctp-text md:hover:text-ctp-mauve"
-                    } no-underline md:p-0`}
+                  } no-underline md:p-0`}
                 >
                   {common("locations.home")}
                 </a>
@@ -120,10 +123,11 @@ const Navbar = () => {
             <li>
               <Link href="/docs/">
                 <a
-                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${route.split("/")[1] === "docs"
+                  className={`block rounded py-2 pr-4 pl-3 md:bg-transparent ${
+                    route.split("/")[1] === "docs"
                       ? "bg-ctp-mauve text-ctp-base md:text-ctp-mauve"
                       : "text-ctp-text md:hover:text-ctp-mauve"
-                    } no-underline md:p-0`}
+                  } no-underline md:p-0`}
                 >
                   {common("locations.docs")}
                 </a>

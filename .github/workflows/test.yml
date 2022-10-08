@@ -2,9 +2,9 @@ name: Lint Code
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint:
@@ -15,9 +15,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          cache: 'yarn'
+          cache: "yarn"
       - name: Install
         run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint
-
