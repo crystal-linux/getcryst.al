@@ -1,0 +1,28 @@
+{
+  "header": "En Arch baserad distribution",
+  "subtitle": "Crystal Linux är en helt ny Arch Linux baserad distribution. Vänlig, kraftfull och enkel att använda.",
+
+  "generics": {
+    "download": "Ladda ner",
+    "getting_started": "Kom igång",
+    "learn_more": "Läs mer",
+    "about": "Om",
+    "community": "Gemenskap",
+    "other": "Annat"
+  },
+
+  "locations": {
+    "home": "Hem",
+    "docs": "Dokumentation",
+    "forums": "Forum",
+    "twitter": "Twitter",
+    "mastodon": "Mastodon",
+    "github": "Github",
+    "discord": "Discord",
+    "matrix": "Matrix",
+    "open_collective": "Open Collective",
+    "contributing_guidelines": "Riktlinjer för Bidrag",
+    "contributor_covenant": "Bidragsgivarförbundet",
+    "dco": "Utvecklarcertifikat"
+  }
+}
