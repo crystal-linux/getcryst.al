@@ -66,7 +66,7 @@ const Home: NextPageWithLayout = () => {
 
       <HomeSection className="">
         <div className="basis-1/4">
-          <p className="mt-8 font-semibold text-ctp-maroon">{t("onyx.tag")}</p>
+          <p className="mt-8 font-semibold text-ctp-mauve">{t("onyx.tag")}</p>
           <p className="mt-4 text-3xl font-extrabold tracking-tight text-ctp-text sm:text-4xl">
             {t("onyx.title")}
           </p>
@@ -108,7 +108,7 @@ const Home: NextPageWithLayout = () => {
 
       <HomeSection className="pb-16 md:pb-28">
         <div className="basis-1/4">
-          <p className="mt-8 font-semibold text-ctp-mauve">
+          <p className="mt-8 font-semibold text-ctp-red">
             {t("amethyst.tag")}
           </p>
           <p className="mt-4 text-3xl font-extrabold tracking-tight text-ctp-text sm:text-4xl">
