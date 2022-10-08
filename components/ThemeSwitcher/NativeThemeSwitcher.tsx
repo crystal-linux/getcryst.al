@@ -26,6 +26,7 @@ const NativeThemeSwitcher = () => {
           setTheme(e.currentTarget.value);
         }}
         className="absolute inset-0 h-full w-full appearance-none opacity-0"
+        value={theme}
       >
         <option value="light">Light</option>
         <option value="dark">Dark</option>

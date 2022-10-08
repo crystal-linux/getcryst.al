@@ -30,6 +30,7 @@ const NativeLocaleSwitcher = () => {
           e.preventDefault();
         }}
         className="absolute inset-0 h-full w-full appearance-none opacity-0"
+        value={locale}
       >
         {locales!.map((loc) => (
           <option key={loc} value={loc}>
