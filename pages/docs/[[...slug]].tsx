@@ -17,6 +17,7 @@ import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import TranslationInfo from "../../components/TranslationInfo";
 import trees from "../../lib/trees";
+import Edit from "../../components/Edit";
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const paths: GetStaticPathsResult["paths"] = [];
@@ -139,6 +140,7 @@ const DocPage: NextPageWithLayout<{
             {source!.frontmatter?.title && <h1>{source!.frontmatter.title}</h1>}
             <TranslationInfo />
             <MDXRemote {...source!} />
+            <Edit />
           </>
         )}
       </DocWrapper>
