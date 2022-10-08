@@ -27,7 +27,7 @@ const NativeLocaleSwitcher = () => {
       <select
         onChange={(e) => {
           push(asPath, undefined, { locale: e.currentTarget.value });
-          e.preventDefault()
+          e.preventDefault();
         }}
         className="absolute inset-0 h-full w-full appearance-none opacity-0"
       >

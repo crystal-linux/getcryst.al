@@ -29,8 +29,9 @@ const IconLocaleSwitcher = () => {
   return (
     <>
       <button
-        className={`${locale !== defaultLocale ? "text-ctp-mauve" : "text-ctp-subtext1"
-          } mr-2 hidden items-center rounded-lg p-2.5 text-center text-sm font-medium hover:bg-ctp-mantle focus:outline-none focus:ring-4 md:inline-flex`}
+        className={`${
+          locale !== defaultLocale ? "text-ctp-mauve" : "text-ctp-subtext1"
+        } mr-2 hidden items-center rounded-lg p-2.5 text-center text-sm font-medium hover:bg-ctp-mantle focus:outline-none focus:ring-4 md:inline-flex`}
         type="button"
         onClick={() => {
           setToggled(!toggled);
@@ -46,8 +47,9 @@ const IconLocaleSwitcher = () => {
         <FontAwesomeIcon size="lg" icon={faLanguage} fixedWidth />
       </button>
       <div
-        className={`${!toggled ? "hidden " : ""
-          }z-10 absolute mt-12 w-32 rounded bg-ctp-base font-semibold shadow`}
+        className={`${
+          !toggled ? "hidden " : ""
+        }z-10 absolute mt-12 w-32 rounded bg-ctp-base font-semibold shadow`}
         ref={ref}
         onBlur={(e) => {
           const currentTarget = e.currentTarget;
@@ -67,8 +69,9 @@ const IconLocaleSwitcher = () => {
           {locales!.map((loc) => (
             <li key={loc}>
               <button
-                className={`${locale === loc ? "text-ctp-mauve" : ""
-                  } flex w-full items-center gap-2 py-2 px-4 hover:bg-ctp-mantle`}
+                className={`${
+                  locale === loc ? "text-ctp-mauve" : ""
+                } flex w-full items-center gap-2 py-2 px-4 hover:bg-ctp-mantle`}
                 onClick={() => changeLocale(loc)}
               >
                 {localeToName.of(loc)}
