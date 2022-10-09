@@ -16,24 +16,27 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import TranslationInfo from "../../components/TranslationInfo";
-import trees from "../../lib/trees";
 import Edit from "../../components/Edit";
+import { existsSync } from "fs";
+import getTree from "../../lib/trees";
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const paths: GetStaticPathsResult["paths"] = [];
 
   for (const locale of locales!) {
-    for await (const file of walkFiles(`_docs/${locale}`)) {
-      const path = file.slice(
-        resolve(process.cwd(), `_docs/${locale}/`).length
-      );
+    if (existsSync(`_docs/${locale}`)) {
+      for await (const file of walkFiles(`_docs/${locale}`)) {
+        const path = file.slice(
+          resolve(process.cwd(), `_docs/${locale}/`).length
+        );
 
-      paths.push({
-        params: {
-          slug: removeExt(path).split("/").slice(1),
-          locale,
-        },
-      });
+        paths.push({
+          params: {
+            slug: removeExt(path).split("/").slice(1),
+            locale,
+          },
+        });
+      }
     }
   }
 
@@ -54,7 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
 
   const rootySlug = ["root", ...slug];
 
-  const tree = trees[locale!].copy();
+  const tree = getTree(locale!).copy();
   tree.walkCurrents(rootySlug);
 
   const me = tree.find(rootySlug);
