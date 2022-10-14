@@ -1,0 +1,17 @@
+{
+  "onyx": {
+    "tag": "Precioso",
+    "title": "Onyx integrado",
+    "description": "Instala Crystal con su escritorio propio, un entorno GNOME con disposición familiar. O elige tu favorito!"
+  },
+  "timeshift": {
+    "tag": "Fiable",
+    "title": "Copias de seguridad automáticas",
+    "description": "Haz copias de seguridad y restáuralas. Arranca fácilmente capturas de Btrfs."
+  },
+  "amethyst": {
+    "tag": "Oxidado",
+    "title": "Amethyst",
+    "description": "Amethyst es un eficiente, sencillo y ligero ayudante de AUR y Pacman. Hecho para Crystal, compatible con cualquier distro basada en Arch."
+  }
+}
