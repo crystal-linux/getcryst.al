@@ -1,0 +1,26 @@
+{
+  "header": "Дистрибутив на основі Arch",
+  "subtitle": "Crystal Linux — це новий дистрибутив на основі Arch. Зручний, потужий і простий у використанні.",
+  "generics": {
+    "download": "Завантажити",
+    "getting_started": "Початок роботи",
+    "learn_more": "Детальніше",
+    "about": "Про",
+    "community": "Спільнота",
+    "other": "Інше"
+  },
+  "locations": {
+    "home": "Головна",
+    "docs": "Документація",
+    "forums": "Форум",
+    "twitter": "Twitter",
+    "mastodon": "Mastodon",
+    "github": "Github",
+    "discord": "Discord",
+    "matrix": "Matrix",
+    "open_collective": "Open Collective",
+    "contributing_guidelines": "Інструкції щодо внеску",
+    "contributor_covenant": "Угода учасника",
+    "dco": "DCO"
+  }
+}
